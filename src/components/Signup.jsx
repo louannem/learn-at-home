@@ -1,10 +1,33 @@
-import { useRef } from "react"
+import { useRef, useState } from "react"
 import signup from "../utils/styles/Signup.module.css"
+import { useAuth } from "../utils/context/AuthContext"
 
 export const Signup = () => {
     const emailRef = useRef()
     const passwordRef = useRef()
     const passwordConfirmRef = useRef()
+    const { signupHook } = useAuth()
+
+    const [error, setError] = useState('')
+
+
+    async function handleSubmit(e) {
+        e.preventDefault()
+
+        if(passwordRef.current.value !== passwordConfirmRef.current.value) {
+            return setError('Passwords do not match')
+        }
+
+        //Try & catch since it's an async event
+        try {
+            setError('')
+            await  signupHook(emailRef.current.value, passwordRef.current.value)
+        }
+        catch {
+            setError('Failed to create an account')
+        }
+        
+    }
 
     return(
         <>
