@@ -1,47 +1,47 @@
-import React, { useContext, useEffect, useState } from "react"
-import { auth } from "../firebase"
+import { createContext, useContext, useEffect, useState } from "react";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  onAuthStateChanged,
+  signOut,
+} from "firebase/auth";
+import { auth } from "../firebase";
 
-const AuthContext = React.createContext()
+const userAuthContext = createContext();
 
-//Hook to access context
-export function useAuth() {
-    return useContext(AuthContext)
+export function UserAuthContextProvider({ children }) {
+  const [user, setUser] = useState({});
+
+  function logIn(email, password) {
+    return signInWithEmailAndPassword(auth, email, password);
+  }
+  function signUp(email, password) {
+    return createUserWithEmailAndPassword(auth, email, password);
+  }
+  function logOut() {
+    return signOut(auth);
+  }
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentuser) => {
+      console.log("Auth", currentuser);
+      setUser(currentuser);
+    });
+
+    return () => {
+      unsubscribe();
+    };
+  }, []);
+
+  return (
+    <userAuthContext.Provider
+      value={{ user, logIn, signUp, logOut }}
+    >
+      {children}
+    </userAuthContext.Provider>
+  );
 }
 
-//Context provider
-export const AuthProvider = ({children}) => {
-    //No user by default
-    const [currentUser, setCurrentUser ] = useState()
-
-    //Context data/info
-    const value = {
-        currentUser,
-        signup
-    }
-
-    /**
-     * Funtion to create a user with an email + password
-     * returns a promise
-     */
-    function signup(email, password) {
-        return auth.createUserWithEmailAndPassword(email, password)
-    }
-
-
-
-    useEffect(() => {
-        //Change current user on authentification 
-        //In useEffect so it only runs once
-        const unsubscribe = auth.onAuthStateChanged(user => {
-            setCurrentUser(user)
-        })
-
-        return unsubscribe
-    },[])
-
-    return(
-        <AuthContext.Provider value={value}>
-            {children}
-        </AuthContext.Provider>
-    )
-} 
+export function useUserAuth() {
+  return useContext(userAuthContext);
+}
