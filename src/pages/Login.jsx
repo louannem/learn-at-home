@@ -1,3 +1,4 @@
+import { LoginForm } from "../components/LoginForm"
 import login from "../utils/styles/Login.module.css"
 
 export const Login = () => {
@@ -5,7 +6,7 @@ export const Login = () => {
         <main>
             <section className={login.wrapper}>
                 <h1>Login</h1>
-                
+                <LoginForm />
             </section>
         </main>
     )

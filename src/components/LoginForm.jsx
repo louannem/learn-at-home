@@ -1,44 +1,37 @@
 import { useState } from "react"
+import { Link, useNavigate } from "react-router-dom"
 import signupstyle from "../utils/styles/Signup.module.css"
 import { useUserAuth } from "../utils/context/AuthContext"
-import { Link, useNavigate } from "react-router-dom";
 
-export const Signup = () => {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [passwordConfirm, setPasswordConfirm] = useState("");
-    const { signUp } = useUserAuth();
-
-    const [error, setError] = useState('')
+export const LoginForm = () => {
+    const [error, setError] = useState()
     const [loading, setLoading] = useState(false)
 
+    const [email, setEmail] = useState()
+    const [password, setPassword] = useState()
+
     const navigate = useNavigate()
+    const { logIn } = useUserAuth()
 
-
-    async function handleSubmit(e) {
+    const handleSubmit = async (e) => {
         e.preventDefault()
-        if(password !== passwordConfirm) {
-            return setError('Passwords do not match')
-        }        
-
+       
         //Try & catch since it's an async event
         try {
             setError('')
             setLoading(true)
-            await  signUp(email, password)
-            navigate("/login")
+            await  logIn(email, password)
+            navigate("/")
         }
         catch(err) {
-            console.log(err)
             setError(`Failed to create an account : `+err.message) 
-
         }
 
         setLoading(false)
-        
-    }
 
-    if(loading) { return(<>Loading...</>)}
+        
+
+    }
 
     return(
         <>
@@ -50,13 +43,11 @@ export const Signup = () => {
                 <label htmlFor="login-password"></label>
                 <input className={signupstyle.input} type='text' id="login-password" onChange={(e) => setPassword(e.target.value)} placeholder="Password"></input>
 
-                <label htmlFor="login-password-confirm"></label>
-                <input className={signupstyle.input} type='text' id="login-password-confirm" onChange={(e) => setPasswordConfirm(e.target.value)} placeholder="Password confirmation"></input>
                 <button disabled={loading} type="submit">Login</button>
             </form>
 
             <div className={signupstyle.loginLinks}>
-                Alreay have an account ? <Link to="/login">Log in</Link>
+                No account ? <Link to="/signup">Sign up</Link>
             </div>
         </>
     )

@@ -5,7 +5,7 @@ export const SignupPage = () => {
     return(
         <main>
             <section className={login.wrapper}>
-                <h1>Login</h1>
+                <h1>Sign up</h1>
                 <Signup />
             </section>
         </main>
