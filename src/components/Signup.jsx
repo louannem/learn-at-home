@@ -1,5 +1,5 @@
-import { useState } from "react"
-import signupstyle from "../utils/styles/Signup.module.css"
+import { useEffect, useState } from "react"
+import signupstyle from "../utils/styles/Form.module.css"
 import { useUserAuth } from "../utils/context/AuthContext"
 import { Link, useNavigate } from "react-router-dom";
 
@@ -8,12 +8,11 @@ export const Signup = () => {
     const [password, setPassword] = useState("");
     const [passwordConfirm, setPasswordConfirm] = useState("");
     const { signUp } = useUserAuth();
-
+    const { user } = useUserAuth()
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
 
     const navigate = useNavigate()
-
 
     async function handleSubmit(e) {
         e.preventDefault()
@@ -37,6 +36,10 @@ export const Signup = () => {
         setLoading(false)
         
     }
+
+    useEffect(() => {
+        if(user) { navigate("/")}
+    }, [user, navigate])
 
     if(loading) { return(<>Loading...</>)}
 

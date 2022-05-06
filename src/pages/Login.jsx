@@ -1,5 +1,5 @@
 import { LoginForm } from "../components/LoginForm"
-import login from "../utils/styles/Login.module.css"
+import login from "../utils/styles/Wrapper.module.css"
 
 export const Login = () => {
     return(

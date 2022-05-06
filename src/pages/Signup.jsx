@@ -1,5 +1,5 @@
 import { Signup } from "../components/Signup"
-import login from "../utils/styles/Login.module.css"
+import login from "../utils/styles/Wrapper.module.css"
 
 export const SignupPage = () => {
     return(

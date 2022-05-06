@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
-import signupstyle from "../utils/styles/Signup.module.css"
+import signupstyle from "../utils/styles/Form.module.css"
 import { useUserAuth } from "../utils/context/AuthContext"
 
 export const LoginForm = () => {
@@ -28,9 +28,6 @@ export const LoginForm = () => {
         }
 
         setLoading(false)
-
-        
-
     }
 
     return(
@@ -46,8 +43,11 @@ export const LoginForm = () => {
                 <button disabled={loading} type="submit">Login</button>
             </form>
 
-            <div className={signupstyle.loginLinks}>
+            <div className={signupstyle.formlink}>
                 No account ? <Link to="/signup">Sign up</Link>
+            </div>
+            <div className={signupstyle.formlink}>
+                Forgot your password ? <Link to="/forgot-password">Reset</Link>
             </div>
         </>
     )

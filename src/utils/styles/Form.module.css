@@ -1,6 +1,6 @@
 .formWrapper {
     width: 368px;
-    height: 300px;
+    min-height: 305px;
 
     display: flex;
     flex-direction: column;
@@ -43,6 +43,15 @@
     cursor: pointer;
 }
 
-.loginLinks {
+.formlink {
     text-align: right;
+}
+
+.userProfile {
+    width: 60px;
+    height: 60px;
+    background-color: lightgrey;
+    border-radius: 100px;
+    margin: 20px 0px;
+    cursor: pointer;
 }
