@@ -33,9 +33,7 @@ export const Signup = () => {
             setError(`Failed to create an account : `+err.message) 
 
         }
-
-        setLoading(false)
-        
+        setLoading(false)  
     }
 
     useEffect(() => {
@@ -62,7 +60,7 @@ export const Signup = () => {
             </form>
 
             <div className={signupstyle.loginLinks}>
-                Alreay have an account ? <Link to="/login">Log in</Link>
+                Alreay have an account ? <Link to="/login" className={signupstyle.secondaryLink}>Log in</Link>
             </div>
         </>
     )

@@ -15,9 +15,11 @@
     background-color: #fafafa;
 }
 
+.noMessage { text-align: center; margin: 30px 0px; color: grey}
+
 .message {
     display: flex;
-    height: 50px;
+    min-height: 50px;
     margin: 10px 0px;
     align-items: center;
 }
@@ -28,15 +30,18 @@
     border-radius: 100%;
     background-color: #d0d0d0;
     margin: 0px 5px;
+    object-fit: cover;
 }
 
 .message > div > div {
     min-width: 20px;
-    height: 100%;
+    max-width: 250px;
+    height: auto;
     border-radius: 5px;
-    padding: 2px 10px;
+    padding: 5px 10px;
     display: flex;
     align-items: center;
+    word-break: break-all;
 }
 
 .message > div {
@@ -99,4 +104,12 @@
     color: white;
 
     cursor: pointer;
+}
+
+
+@media screen and (max-width: 600px) {
+    .wrapper { padding: 0;}
+    .form { width: 100%}
+    .input { width: 65%}
+    .button { width: 35%;}
 }

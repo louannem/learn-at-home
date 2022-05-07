@@ -46,10 +46,10 @@ export const LoginForm = () => {
             </form>
 
             <div className={signupstyle.formlink}>
-                No account ? <Link to="/signup">Sign up</Link>
+                No account ? <Link to="/signup" className={signupstyle.secondaryLink}>Sign up</Link>
             </div>
             <div className={signupstyle.formlink}>
-                Forgot your password ? <Link to="/forgot-password">Reset</Link>
+                Forgot your password ? <Link to="/forgot-password" className={signupstyle.secondaryLink}>Reset</Link>
             </div>
         </>
     )

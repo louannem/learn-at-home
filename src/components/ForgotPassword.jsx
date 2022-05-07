@@ -39,10 +39,10 @@ export const ForgotPassword = () => {
             </form>
 
             <div className={resetPassword.formlink}>
-                No account ? <Link to="/signup">Sign up</Link>
+                No account ? <Link to="/signup" className={resetPassword.secondaryLink}>Sign up</Link>
             </div>
             <div className={resetPassword.formlink}>
-                Forgot your password ? <Link to="/forgot-password">Reset</Link>
+                Forgot your password ? <Link to="/forgot-password" className={resetPassword.secondaryLink}>Reset</Link>
             </div>
         </>        
     )

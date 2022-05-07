@@ -4,13 +4,18 @@ import { addDoc, collection, limit,  onSnapshot, orderBy, query } from "firebase
 import { useUserAuth } from "../utils/context/AuthContext"
 import { Message } from "./Chat/Message"
 import chat from "../utils/styles/Chat.module.css"
-import form from "../utils/styles/Form.module.css"
+import { useNavigate } from "react-router-dom"
 
 export const ChatFeed = () => {
     const [messages, setMessages] = useState([])
     const [formValue, setValue] = useState('')
 
     const {user} = useUserAuth()
+    const navigate = useNavigate()
+
+    useEffect(() => {
+        if(user === null) { navigate('/login')}
+    })
 
     const sendMessage = async (e) => {
         e.preventDefault()       
@@ -40,9 +45,10 @@ export const ChatFeed = () => {
 
     return(
         <section className={chat.wrapper}>
-            { messages ? messages.map(mess => (
-                <Message message={mess} key={mess.id} />
-            )) : <p>No message to display.</p>}
+            {messages.map((mess, index) => (
+                <Message message={mess} key={`${mess.id}-message-${index}`} />
+            ))}
+            {messages.length === 0 && <p className={chat.noMessage}>No message to display. Start by sending a message !</p>}
            
             <form onSubmit={sendMessage} className={chat.form}>
                 <input value={formValue} onChange={(e) => setValue(e.target.value)}className={chat.input} />

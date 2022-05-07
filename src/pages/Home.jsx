@@ -4,20 +4,21 @@ import { Dashboard } from "../components/Dashboard"
 import { useUserAuth } from "../utils/context/AuthContext"
 import dashboard from "../utils/styles/Dashboard.module.css"
 
-export const Home = ( ) => {
+export const Home = () => {
     let { user } = useUserAuth()
-    const navigate = useNavigate()    
-   
+    const navigate = useNavigate()
 
     useEffect(() => {
-        if(user === null) {  navigate("/login")}
+        if(user === null) {
+            navigate("/login")
+        }
     }, [user, navigate])
-    
-    return(
-        <section className={dashboard.wrapper}>
-            <h1>Welcome {user.displayName || user.email} !</h1>
-            {user && <Dashboard user={user} />}
-        </section>
         
+    return(
+        user && 
+        <section className={dashboard.wrapper}>
+            <h1>Welcome <i>{user.displayName || user.email}</i> !</h1>
+            <Dashboard user={user} />
+        </section>           
     )
 }
