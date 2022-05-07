@@ -10,6 +10,7 @@ import { ProtectedRoute } from './components/ProtectedRoute';
 import { NavigationBar } from './components/NavigationBar';
 import { UpdateProfile } from './pages/UpdateProfile';
 import { ForgotPasswordPage } from './pages/ForgetPasswordPage';
+import { ChatPage } from './pages/ChatPage';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -28,6 +29,12 @@ root.render(
         <Route path="/update-profile" element={
           <ProtectedRoute>
             <UpdateProfile />
+          </ProtectedRoute>
+        } ></Route>
+
+        <Route path="/chat" element={
+          <ProtectedRoute>
+            <ChatPage />
           </ProtectedRoute>
         } ></Route>
 

@@ -8,6 +8,14 @@
     justify-content: center;
 }
 
+
+.formWrapper > img {
+    height: 100px;
+    width: 100px;
+    margin: auto;
+    margin: 20px 0px;
+}
+
 .input {
     width: 50%;
     height: 20px;
@@ -45,6 +53,7 @@
 
 .formlink {
     text-align: right;
+    margin: 10px 0px;
 }
 
 .userProfile {
@@ -54,4 +63,10 @@
     border-radius: 100px;
     margin: 20px 0px;
     cursor: pointer;
+}
+
+
+.secondaryLink {
+    text-decoration: none;
+    color: #D7465B;
 }

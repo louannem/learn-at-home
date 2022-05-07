@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import signupstyle from "../utils/styles/Form.module.css"
 import { useUserAuth } from "../utils/context/AuthContext"
 import { Link, useNavigate } from "react-router-dom";
+import logo from "../assets/logo.svg"
 
 export const Signup = () => {
     const [email, setEmail] = useState("");
@@ -47,6 +48,8 @@ export const Signup = () => {
         <>
         {error && <p>{error}</p>}
             <form className={signupstyle.formWrapper} onSubmit={handleSubmit}>
+                <img src={logo} alt="learn at home" />
+
                 <label htmlFor="login-email"></label>
                 <input className={signupstyle.input} type='text' id="login-email" onChange={(e) => setEmail(e.target.value)} placeholder="Email"></input>
 
