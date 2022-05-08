@@ -2,17 +2,27 @@ import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import newRoom from "../../utils/styles/Form.module.css"
 import logo from "../../assets/logo.svg"
+import { addDoc, collection} from "firebase/firestore"
+import { db } from "../../utils/firebase"
 
 export const RoomForm = () => {
     const [room, setRoom] = useState()
-    const [roomId, setRoomId] = useState(Math.floor(Math.random() * 1000))
+    const roomId = Math.floor(Math.random() * 1000)
 
     const navigate = useNavigate()
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
+
+        await addDoc(collection(db, 'rooms'), {
+            roomName: room,
+            roomId: roomId
+        })
+
         navigate(`/chatroom/${roomId}`)
     }
+
+    
 
     return(
         <>

@@ -31,11 +31,6 @@
     object-position: center;
 }
 
-.newRoom { 
-    display: flex;
-    margin: 20px 10px 0px 0px;
-}
-
 .roomCollection {
     display: grid;
     grid-template-columns: repeat(4, 220px);

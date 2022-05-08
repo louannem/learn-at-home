@@ -22,7 +22,7 @@ export const RoomsCollection = ({user}) => {
     return(
         <>
             <h2>Rooms</h2> 
-            {rooms.length > 0 && <span className={dashboard.newRoom}>You are part of {rooms.length} rooms. Try and <Link to="/new-room">create a new one</Link> !</span>}
+            {rooms.length > 0 && <span className={dashboard.newRoom}>You are part of {rooms.length} room{rooms.length > 1 ? 's' : ''}. Try and <Link to="/new-room">create a new one</Link> !</span>}
             <div className={dashboard.roomCollection}>
             { rooms.length > 0 ? rooms.map(elem => (
                 <CurrentRooms group={elem}  key={`room-${elem.room}`} />
