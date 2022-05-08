@@ -21,7 +21,7 @@ export const NavigationBar = () => {
                {user && 
                <ul className={navbar.navbarLinks}>
                     <Link to="/update-profile"><img src={user.photoURL} alt="User profile" className={navbar.userPhoto} /></Link>
-                    <Link to="/"><li>New room</li></Link>
+                    <Link to="/new-room"><li>New room</li></Link>
                     <Link to="/login"><li onClick={handleLogout}>Logout</li></Link>
                </ul>
                }

@@ -11,6 +11,7 @@ import { NavigationBar } from './components/NavigationBar';
 import { UpdateProfile } from './pages/UpdateProfile';
 import { ForgotPasswordPage } from './pages/ForgetPasswordPage';
 import { ChatPage } from './pages/ChatPage';
+import { NewRoom } from './pages/NewRoom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -35,6 +36,12 @@ root.render(
         <Route path="/chatroom/:currentRoom" element={
           <ProtectedRoute>
             <ChatPage />
+          </ProtectedRoute>
+        } ></Route>
+
+        <Route path="/new-room" element={
+          <ProtectedRoute>
+            <NewRoom />
           </ProtectedRoute>
         } ></Route>
 

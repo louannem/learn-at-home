@@ -21,15 +21,19 @@
 .navbarLinks a {
     text-decoration: none;
     color: black;
-    height: 100%;
+    height: 34px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .navbarLinks li { height: 100%; list-style: none; cursor: pointer; margin: 0px 5px; display: flex; align-items: center; }
 
 .userPhoto {
-    width: 30px;
-    height: 30px;
+    width: 34px;
+    height: 34px;
     border-radius: 100px;
     object-fit: cover;
     object-position: center;
 }
+

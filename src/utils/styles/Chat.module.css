@@ -56,17 +56,19 @@
 .received { justify-content: flex-start;}
 
 .sent > div > div { 
-    background-color: lightgray;
+    background-color: #EFEFEF;
 }
 
 .received  > div > div {
-    background-color: grey;
+    background-color: #D7465B;
+    color: #ffffff
 }
 
 svg {
     width: 15px;
     fill: grey;
     cursor: pointer;
+    margin: 0px 5px;
 }
 
 .form {

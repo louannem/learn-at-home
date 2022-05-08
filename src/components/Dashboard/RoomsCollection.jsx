@@ -2,6 +2,7 @@ import { query, collection, orderBy, limit, onSnapshot, where } from "firebase/f
 import { useEffect, useState } from "react";
 import { db } from "../../utils/firebase";
 import { CurrentRooms } from "./CurrentRooms";
+import { Link } from "react-router-dom";
 
 import dashboard from "../../utils/styles/Dashboard.module.css"
 
@@ -21,12 +22,12 @@ export const RoomsCollection = ({user}) => {
     return(
         <>
             <h2>Rooms</h2> 
-            {rooms.length > 0 && <span className={dashboard.newRoom}>You are part of {rooms.length} rooms. Try and create a new one !</span>}
+            {rooms.length > 0 && <span className={dashboard.newRoom}>You are part of {rooms.length} rooms. Try and <Link to="/new-room">create a new one</Link> !</span>}
             <div className={dashboard.roomCollection}>
             { rooms.length > 0 ? rooms.map(elem => (
                 <CurrentRooms group={elem}  key={`room-${elem.room}`} />
             )) :
-            <span>You didn't write in any room ! Try to create one.</span>
+            <span>You didn't write in any room ! <Link to="/new-room">Try to create one</Link>.</span>
             }
             </div>
         </>
