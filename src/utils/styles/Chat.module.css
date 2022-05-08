@@ -63,6 +63,11 @@
     background-color: grey;
 }
 
+svg {
+    width: 15px;
+    fill: grey;
+    cursor: pointer;
+}
 
 .form {
     width: 100%;

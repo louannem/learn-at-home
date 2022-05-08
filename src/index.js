@@ -32,7 +32,7 @@ root.render(
           </ProtectedRoute>
         } ></Route>
 
-        <Route path="/chat" element={
+        <Route path="/chatroom/:currentRoom" element={
           <ProtectedRoute>
             <ChatPage />
           </ProtectedRoute>

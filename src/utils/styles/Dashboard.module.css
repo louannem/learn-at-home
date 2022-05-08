@@ -30,3 +30,12 @@
     object-fit: cover;
     object-position: center;
 }
+
+.newRoom {
+    margin: 10px 0px;
+}
+
+.newRoom { 
+    display: flex;
+    margin: 20px 0px;
+}
