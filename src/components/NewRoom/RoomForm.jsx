@@ -36,11 +36,6 @@ export const RoomForm = () => {
 
                 <button type="submit">Create room</button>
             </form>
-
-            <div className={newRoom.formlink}>
-                No account ? <Link to="/signup" className={newRoom.secondaryLink}>Sign up</Link>
-            </div>
-
         </>
     )
 } 
