@@ -33,3 +33,4 @@ Things to improve and implement :
 - [ ] List of current users in a chatroom
 - [ ] Page listing every available chatrooms
 - [ ] Search system for available chatrooms
+- [ ] Better handling of forms errors
