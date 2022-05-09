@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react"
-import { db } from "../utils/firebase"
+import { db } from "../../utils/firebase"
 import { addDoc, collection, doc, limit,  onSnapshot, orderBy, query, updateDoc, where } from "firebase/firestore"
-import { useUserAuth } from "../utils/context/AuthContext"
+import { useUserAuth } from "../../utils/context/AuthContext"
 import { useNavigate } from "react-router-dom"
 
 //Components & style
-import { Message } from "./Chat/Message"
-import chat from "../utils/styles/Chat.module.css"
+import { Message } from "./Message"
+import chat from "../../utils/styles/Chat.module.css"
 
 
 
@@ -75,7 +75,7 @@ export const ChatFeed = ({currentChat}) => {
         
         //Gets messages
         if(roomId) {
-            const q =  query(collection(db, 'rooms', roomId, 'messages'), orderBy('createdAt'));
+            const q =  query(collection(db, 'rooms', roomId, 'messages'), orderBy('createdAt'), limit(50));
             onSnapshot(q, querySnapshot => {
                 setMessages(querySnapshot.docs.map(doc => {
                     return{

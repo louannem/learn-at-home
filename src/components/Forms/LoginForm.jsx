@@ -1,8 +1,8 @@
 import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
-import signupstyle from "../utils/styles/Form.module.css"
-import { useUserAuth } from "../utils/context/AuthContext"
-import logo from "../assets/logo.svg"
+import signupstyle from "../../utils/styles/Form.module.css"
+import { useUserAuth } from "../../utils/context/AuthContext"
+import logo from "../../assets/logo.svg"
 
 export const LoginForm = () => {
     const [error, setError] = useState()

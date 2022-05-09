@@ -1,4 +1,4 @@
-import { LoginForm } from "../components/LoginForm"
+import { LoginForm } from "../components/Forms/LoginForm"
 import login from "../utils/styles/Wrapper.module.css"
 
 export const Login = () => {

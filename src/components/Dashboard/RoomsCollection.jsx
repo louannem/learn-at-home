@@ -1,4 +1,4 @@
-import { query, collection, orderBy, limit, onSnapshot, where } from "firebase/firestore";
+import { query, collection, onSnapshot, where } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { db } from "../../utils/firebase";
 import { CurrentRooms } from "./CurrentRooms";

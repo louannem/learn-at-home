@@ -1,4 +1,4 @@
-import { ForgotPassword } from "../components/ForgotPassword"
+import { ForgotPassword } from "../components/Forms/ForgotPassword"
 import form from "../utils/styles/Wrapper.module.css"
 
 export const ForgotPasswordPage = () => {

@@ -1,7 +1,7 @@
 import { collection, onSnapshot, query, where } from "firebase/firestore"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import { ChatFeed } from "../components/ChatFeed"
+import { ChatFeed } from "../components/Chat/ChatFeed"
 import { db } from "../utils/firebase"
 import chat from "../utils/styles/Chat.module.css"
 

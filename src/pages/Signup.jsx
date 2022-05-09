@@ -1,4 +1,4 @@
-import { Signup } from "../components/Signup"
+import { Signup } from "../components/Forms/Signup"
 import login from "../utils/styles/Wrapper.module.css"
 
 export const SignupPage = () => {
