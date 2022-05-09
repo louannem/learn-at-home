@@ -3,9 +3,9 @@ import room from "../../utils/styles/Room.module.css"
 
 export const CurrentRooms = ({group}) => {
     return(
-        <Link to={`/chatroom/${group.room}`} className={room.link} > 
+        <Link to={`/chatroom/${group.roomId}`} className={room.link} > 
             <article  className={room.wrapper}>
-            <span>#{group.room}</span>
+            <span>#{group.roomName}</span>
             </article>
         </Link>
     )

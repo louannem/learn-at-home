@@ -10,12 +10,11 @@ export const RoomsCollection = ({user}) => {
     const [rooms, setRooms] = useState([])
     
     useEffect(() => {
-        const q =  query(collection(db, "messages"), orderBy('room'), limit(50), where("uid", "==", user.uid));
+        const q =  query(collection(db, "rooms"),  where('users', 'array-contains', user.uid));
         onSnapshot(q, querySnapshot => {
-            setRooms(querySnapshot.docs.map(doc => {
+            setRooms(querySnapshot.docs.map(doc => (
                 doc.data()
-                return doc.data()
-            }))
+            )))
         } )
     }, [])
 
@@ -25,7 +24,7 @@ export const RoomsCollection = ({user}) => {
             {rooms.length > 0 && <span className={dashboard.newRoom}>You are part of {rooms.length} room{rooms.length > 1 ? 's' : ''}. Try and <Link to="/new-room">create a new one</Link> !</span>}
             <div className={dashboard.roomCollection}>
             { rooms.length > 0 ? rooms.map(elem => (
-                <CurrentRooms group={elem}  key={`room-${elem.room}`} />
+                <CurrentRooms group={elem}  key={`room-${elem.roomId}`} />
             )) :
             <span>You didn't write in any room ! <Link to="/new-room">Try to create one</Link>.</span>
             }

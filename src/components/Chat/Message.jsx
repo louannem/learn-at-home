@@ -11,7 +11,7 @@ export const Message = ({message}) => {
     const navigate = useNavigate()
 
     const deleteMessage = async () => {
-        await deleteDoc(doc(db, 'messages', message.id))
+        await deleteDoc(doc(db, 'rooms', message.roomId, 'messages', message.id))
     }
 
     useEffect(() => {

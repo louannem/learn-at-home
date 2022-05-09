@@ -4,10 +4,12 @@ import newRoom from "../../utils/styles/Form.module.css"
 import logo from "../../assets/logo.svg"
 import { addDoc, collection} from "firebase/firestore"
 import { db } from "../../utils/firebase"
+import { useUserAuth } from "../../utils/context/AuthContext"
 
 export const RoomForm = () => {
     const [room, setRoom] = useState()
     const roomId = Math.floor(Math.random() * 1000)
+    const {user} = useUserAuth()
 
     const navigate = useNavigate()
 
@@ -16,7 +18,8 @@ export const RoomForm = () => {
 
         await addDoc(collection(db, 'rooms'), {
             roomName: room,
-            roomId: roomId
+            roomId: roomId,
+            users: [user.uid]
         })
 
         navigate(`/chatroom/${roomId}`)
