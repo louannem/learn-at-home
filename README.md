@@ -29,7 +29,7 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 ## To do
 
 Things to improve and implement :
-- [ x ] Navbar menu
+- [x] Navbar menu
 - [ ] Quit a chatroom button styling
 - [ ] List of current users in a chatroom
 - [ ] Page listing every available chatrooms
