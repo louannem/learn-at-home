@@ -26,7 +26,7 @@ export const RoomsCollection = ({user}) => {
             { rooms.length > 0 ? rooms.map(elem => (
                 <CurrentRooms group={elem}  key={`room-${elem.roomId}`} />
             )) :
-            <span>You didn't write in any room ! <Link to="/new-room">Try to create one</Link>.</span>
+            <span>You are not part of any room ! <Link to="/new-room">Try to create one</Link>.</span>
             }
             </div>
         </>
