@@ -13,8 +13,6 @@ export const Dashboard = ({user}) => {
         <>
             <section className={dashboard.section}>
                 <img src={user.photoURL} alt="User profile" className={dashboard.userProfile} />
-                <strong>Email : </strong> {user.email}<br/>
-                <strong>Username : </strong> {user.displayName || "N/A"}<br/>
             </section>
             <Link to="/update-profile" className={dashboard.ctaButton}>Update profile</Link>
         </>

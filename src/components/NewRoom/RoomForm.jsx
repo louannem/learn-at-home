@@ -19,6 +19,7 @@ export const RoomForm = () => {
         await addDoc(collection(db, 'rooms'), {
             roomName: room,
             roomId: roomId,
+            roomCreator: user.uid,
             users: [user.uid]
         })
 
