@@ -5,9 +5,9 @@ import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/logo.svg"
 
 export const Signup = () => {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [passwordConfirm, setPasswordConfirm] = useState("");
+    const [email, setEmail] = useState();
+    const [password, setPassword] = useState();
+    const [passwordConfirm, setPasswordConfirm] = useState();
     const { signUp } = useUserAuth();
     const { user } = useUserAuth()
     const [error, setError] = useState('')
@@ -21,19 +21,25 @@ export const Signup = () => {
             return setError('Passwords do not match')
         }        
 
-        //Try & catch since it's an async event
-        try {
-            setError('')
-            setLoading(true)
-            await  signUp(email, password)
-            navigate("/login")
+        if(email === undefined && password === undefined) {
+            setError('Please enter an email and a password')
+        } else if (email === undefined) {
+            setError('Please enter an email')
+        } else if (password === undefined) {
+            setError('Please enter a password')
+            } else {
+                //Try & catch since it's an async event
+                try {
+                    setError('')
+                    setLoading(true)
+                    await  signUp(email, password)
+                    navigate("/login")
+                }
+                catch(err) {
+                    setError(`Failed to create an account.`+err.message) 
+                }
+                setLoading(false)  
         }
-        catch(err) {
-            console.log(err)
-            setError(`Failed to create an account : `+err.message) 
-
-        }
-        setLoading(false)  
     }
 
     useEffect(() => {
@@ -44,7 +50,7 @@ export const Signup = () => {
 
     return(
         <>
-        {error && <p>{error}</p>}
+        {error && <div className={signupstyle.error}>{error}</div>}
             <form className={signupstyle.formWrapper} onSubmit={handleSubmit}>
                 <img src={logo} alt="learn at home" />
 

@@ -6,6 +6,8 @@
     flex-direction: column;
 }
 
+.mainWrapper h1 { margin: 0 }
+
 .wrapper {
     width: 100%;
     height: 70vh;

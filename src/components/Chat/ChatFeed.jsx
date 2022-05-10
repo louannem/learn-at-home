@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom"
 //Components & style
 import { Message } from "./Message"
 import chat from "../../utils/styles/Chat.module.css"
+import button from "../../utils/styles/Button.module.css"
 
 
 
@@ -90,7 +91,7 @@ export const ChatFeed = ({currentChat}) => {
 
     return(
         <>
-            <button onClick={exit}>Exit</button>
+            <button onClick={exit} className={button.wrapper}>Exit</button>
             <section className={chat.wrapper}>
                 {messages.map((mess, index) => (
                     <Message message={mess} key={`${mess.id}-message-${index}`} />

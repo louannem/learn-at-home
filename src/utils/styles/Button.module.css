@@ -1,0 +1,17 @@
+.wrapper {
+    background: #D7465B;
+    border-radius: 5px;
+    border: none;
+    margin: 20px 0px;
+    width: 100px;
+    height: 30px;
+    color: white;
+
+    cursor: pointer;
+}
+
+.link {
+    text-decoration: none;
+    color: #D7465B;
+    margin: 10px 0px;
+}

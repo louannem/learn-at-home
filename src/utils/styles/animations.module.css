@@ -1,0 +1,16 @@
+.navbar { min-height: 0px; overflow: hidden; z-index: -1; transform: translateY(-60px); margin-bottom: 60px;}
+.navbar[rolldown='1'] {
+    animation: rollDown 0.8s forwards ;
+}
+
+
+@keyframes rollDown {
+    0% { transform: translateY(60px); max-height: 0px; z-index: 1; }
+
+    100% {
+        z-index: 1;
+        min-height: 75px;
+        transform: translateY(60px);
+    }
+}
+

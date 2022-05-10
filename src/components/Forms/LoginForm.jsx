@@ -17,15 +17,25 @@ export const LoginForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
        
-        //Try & catch since it's an async event
-        try {
-            setError('')
-            setLoading(true)
-            await  logIn(email, password)
-            navigate("/")
-        }
-        catch(err) {
-            setError(`Failed to create an account : `+err.message) 
+
+        if(email === undefined && password === undefined) {
+            setError('Please enter an email and a password')
+        } else if (email === undefined) {
+            setError('Please enter an email')
+        } else if (password === undefined) {
+            setError('Please enter a password')
+        } else {
+                   //Try & catch since it's an async event
+            try {
+                setError('')
+                setLoading(true)
+                await  logIn(email, password)
+                navigate("/")
+            }
+            catch(err) {
+                setError(`Failed to create an account : unknown email or password`) 
+            }
+
         }
 
         setLoading(false)
@@ -33,7 +43,7 @@ export const LoginForm = () => {
 
     return(
         <>
-        {error && <p>{error}</p>}
+        {error && <div className={signupstyle.error}>{error}</div>}
             <form className={signupstyle.formWrapper} onSubmit={handleSubmit}>
                 <img src={logo} alt="learn at home" />
                 <label htmlFor="login-email"></label>

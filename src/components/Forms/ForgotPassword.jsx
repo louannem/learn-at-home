@@ -29,7 +29,7 @@ export const ForgotPassword = () => {
 
     return(
         <>
-            {error && <p>{error}</p>}
+            {error && <div className={resetPassword.error}>{error}</div>}
             {message && <p>{message}</p>}
             <form className={resetPassword.formWrapper} onSubmit={handleSubmit}>
                 <label htmlFor="reset-password"></label>

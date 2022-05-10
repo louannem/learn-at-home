@@ -8,6 +8,8 @@ import { useUserAuth } from "../../utils/context/AuthContext"
 
 export const RoomForm = () => {
     const [room, setRoom] = useState()
+    const [error, setError] = useState()
+
     const roomId = Math.floor(Math.random() * 1000)
     const {user} = useUserAuth()
 
@@ -16,20 +18,22 @@ export const RoomForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
 
+        if(room === undefined) {
+            setError("You need to give a name to your room  !")
+        }
+
         await addDoc(collection(db, 'rooms'), {
             roomName: room,
             roomId: roomId,
             roomCreator: user.uid,
             users: [user.uid]
         })
-
         navigate(`/chatroom/${roomId}`)
     }
 
-    
-
     return(
         <>
+        {error && <div className={newRoom.error}>{error}</div>}
             <form className={newRoom.formWrapper} onSubmit={handleSubmit}>
                 <img src={logo} alt="learn at home" />
                 <label htmlFor="room-name"></label>

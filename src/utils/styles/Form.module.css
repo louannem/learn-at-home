@@ -71,3 +71,15 @@
     text-decoration: none;
     color: #D7465B;
 }
+
+
+
+.error {
+    width: 300px;
+    padding: 10px 5px;
+    background-color: #ffd2ce;
+    border-radius: 5px;
+    font-size: 12px;
+    text-align: center;
+    border: 2px #ff9287 solid;
+}
