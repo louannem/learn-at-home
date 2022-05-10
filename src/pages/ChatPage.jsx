@@ -9,6 +9,7 @@ export const ChatPage = () => {
     const param = useParams()
     const [currentChat, setCurrentChat] = useState(param.currentRoom)
     const [chatName, setChatName] = useState('')
+    const [roomDescription, setDescription]= useState()
     const [users, setUsers] = useState([])
 
     useEffect(() => {
@@ -16,6 +17,7 @@ export const ChatPage = () => {
         onSnapshot(q, querySnapshot => {
            querySnapshot.docs.map(doc => (
                setChatName(doc.data().roomName),
+               setDescription(doc.data().roomDesc),
                setUsers(doc.data().users)
             ))
         })
@@ -23,8 +25,9 @@ export const ChatPage = () => {
     
     return(
         <main className={chat.mainWrapper}>
-           <h1>Chat page - {chatName}</h1>
-           {users && <p>{users.length} user{users.length > 1 ? 's' : '' } in this room</p> }
+           <h1>{chatName}</h1>
+           {roomDescription ?<p>{roomDescription} </p> : ''}
+           {users && <span>{users.length} user{users.length > 1 ? 's' : '' } in this room</span> }
             <ChatFeed currentChat={currentChat} /> 
         </main>
         

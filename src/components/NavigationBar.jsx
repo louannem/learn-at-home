@@ -20,12 +20,16 @@ export const NavigationBar = () => {
     const handleLogout = (e) => {
         e.preventDefault()
         logOut()
-        setIsOpen(false)
+        closeMenu()
         navigate("/login")
     }
 
     const toggleMenu = () => { setIsOpen(!isOpen)}
-    const handleAnimation = () => { setRoll(1)}
+
+    const closeMenu = () => {
+        toggleMenu()
+        setRoll(0)
+    }
 
     return(
         <>
@@ -41,10 +45,10 @@ export const NavigationBar = () => {
                         <span>{user.displayName}</span>
                     </Link> }
                       
-                    <div className={navbar.closeMenu}>
+                    <li className={navbar.closeMenu}>
                     {!isOpen ? <img src={menu}  alt="Navigation menu" onClick={() => {toggleMenu(); setRoll(1)}}/>
-                    : <BsXLg onClick={() => {toggleMenu(); setRoll(0)}} /> }
-                    </div>
+                    : <BsXLg onClick={closeMenu} /> }
+                    </li>
                 </ul>           
             </nav>
 
@@ -54,15 +58,15 @@ export const NavigationBar = () => {
                     <ul>
                        {user ? 
                        <>
-                        <Link to="/new-room"><li>New room</li></Link>
-                        <Link to="/login"><li onClick={handleLogout}>Logout</li></Link>
+                        <li onClick={closeMenu}><Link to="/new-room">New room</Link></li>
+                        <li onClick={handleLogout}><Link to="/login">Logout</Link></li>
                        </> 
 
                        :
 
                        <>
-                        <Link to="/signup"><li>Sign up</li></Link>
-                        <Link to="/login"><li>Login</li></Link>
+                        <li><Link to="/signup">Sign up</Link></li>
+                        <li><Link to="/login">Login</Link></li>
                        </>
                         }
                     </ul>

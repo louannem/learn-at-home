@@ -6,7 +6,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px;
+    padding: 15px;
     box-sizing: border-box;
 
     position: absolute;
@@ -30,7 +30,7 @@
     align-items: center;
 }
 
-.navbarLinks li { height: 100%; list-style: none; cursor: pointer; margin: 0px 5px; display: flex; align-items: center; }
+.navbarLinks li { height: 34px; list-style: none; cursor: pointer; margin: 0px 5px; display: flex; align-items: center; }
 
 .userPhoto {
     width: 34px;
@@ -42,7 +42,6 @@
 
 .navbar img { cursor: pointer; margin: 0px 10px;}
 
-.closeMenu { display: flex; align-items: center; justify-content: center; height: 35px; width: 35px;}
 .closeMenu svg { fill: #D7465B; height: 25px; width: 25px; }
 
 .navbarMenu {
@@ -68,6 +67,8 @@
 }
 
 .navbarMenu li {  height: 100%; list-style: none; cursor: pointer; margin: 0px 5px; display: flex; align-items: center; }
+
+.closeMenu { display: flex; align-items: center; justify-content: center; height: 35px; width: 35px; margin-left: 20px!important;}
 
 .navbarMenu ul a {
     text-decoration: none;

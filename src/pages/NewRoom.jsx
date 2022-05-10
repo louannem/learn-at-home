@@ -1,4 +1,4 @@
-import { RoomForm } from "../components/NewRoom/RoomForm"
+import { RoomForm } from "../components/Forms/RoomForm"
 import newRoom from "../utils/styles/Wrapper.module.css"
 
 export const NewRoom = () => {
