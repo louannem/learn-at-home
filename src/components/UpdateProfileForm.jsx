@@ -2,16 +2,14 @@ import { useState } from "react"
 import { useUserAuth } from "../utils/context/AuthContext"
 import form from "../utils/styles/Form.module.css"
 import { Link, useNavigate } from "react-router-dom"
-import { db } from "../utils/firebase"
-import { addDoc, collection, getDocs } from "firebase/firestore"
 
 export const UpdateProfileForm = () => {
     const { user, updateUserEmail, updateUserName, updateUserPassword, updateUserPhoto } = useUserAuth()
    
    
     const [photoURL, setPhotoURL] = useState()
-    const [name, setName] = useState()
-    const [email, setEmail] = useState()
+    const [name, setName] = useState(user.displayName)
+    const [email, setEmail] = useState(user.email)
     const [password, setPassword] = useState('')
     const [passwordConfirm, setPasswordConfirm] = useState()
 
@@ -20,26 +18,6 @@ export const UpdateProfileForm = () => {
 
     const navigate = useNavigate()
 
-    const newCollection = async () => {
-        const querySnapshot = await getDocs(collection(db, "users"));
-        querySnapshot.forEach((doc) => {
-          console.log(doc.id);
-          console.log(doc.data())
-        });
-
-        try {
-            const docRef = await addDoc(collection(db, "users"), {
-              first: "Alan",
-              middle: "Mathison",
-              last: "Turing",
-              born: 1912
-            });
-          
-            console.log("Document written with ID: ", docRef.id);
-          } catch (e) {
-            console.error("Error adding document: ", e);
-          }
-    }
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -52,7 +30,7 @@ export const UpdateProfileForm = () => {
         const promises = []
 
         if(email !== user.email) {
-            promises.push(updateUserEmail(email))
+            promises.push(updateUserEmail(email))           
         }
         if(password) {
             promises.push(updateUserPassword(password))

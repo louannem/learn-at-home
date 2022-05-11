@@ -28,7 +28,12 @@ export const NavigationBar = () => {
 
     const closeMenu = () => {
         toggleMenu()
-        setRoll(0)
+        if(rollUpDown === 1) {
+             setRoll(0)
+        } else {
+            setRoll(1)
+        }
+       
     }
 
     return(
@@ -45,10 +50,12 @@ export const NavigationBar = () => {
                         <span>{user.displayName}</span>
                     </Link> }
                       
-                    <li className={navbar.closeMenu}>
-                    {!isOpen ? <img src={menu}  alt="Navigation menu" onClick={() => {toggleMenu(); setRoll(1)}}/>
-                    : <BsXLg onClick={closeMenu} /> }
+                    <li className={navbar.closeMenu}  onClick={closeMenu}>
+                    {!isOpen ? 
+                        <img src={menu}  alt="Navigation menu"/>
+                    :   <BsXLg  /> }
                     </li>
+                    
                 </ul>           
             </nav>
 

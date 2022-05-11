@@ -43,7 +43,7 @@ export const RoomForm = () => {
                 <label htmlFor="room-name"></label>
                 <input className={newRoom.input} type='text' id="room-name" onChange={(e) => setRoom(e.target.value)} placeholder="Room name"></input>
 
-                <input className={newRoom.input} type='text'  maxlength="200" id="room-name" onChange={(e) => setDescription(e.target.value)} placeholder="Room description"></input>
+                <input className={newRoom.input} type='text'  maxLength="200" id="room-name" onChange={(e) => setDescription(e.target.value)} placeholder="Room description"></input>
                 <button type="submit">Create room</button>
             </form>
         </>

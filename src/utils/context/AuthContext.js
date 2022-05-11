@@ -9,7 +9,8 @@ import {
   updateEmail,
   updateProfile
 } from "firebase/auth";
-import { auth } from "../firebase";
+import { auth, db } from "../firebase";
+import { doc, setDoc } from "firebase/firestore";
 
 const userAuthContext = createContext();
 
@@ -36,14 +37,14 @@ export function UserAuthContextProvider({ children }) {
     updateEmail(user, email)
   }
 
-  function updateUserName(name) {
-    updateProfile(user, {
+  async function updateUserName(name) {
+    await updateProfile(user, {
       displayName: name
     })
   }
 
-  function updateUserPhoto(photo) {
-    updateProfile(user, {
+  async function updateUserPhoto(photo) {
+    await updateProfile(user, {
       photoURL: photo
     })
   }
@@ -52,20 +53,44 @@ export function UserAuthContextProvider({ children }) {
     return signOut(auth);
   }
 
+
+  const value = {
+    user,
+    logIn,
+    signUp,
+    logOut,
+    resetPasswordEmail, 
+    updateUserPassword, 
+    updateUserEmail, 
+    updateUserName,
+    updateUserPhoto 
+  }
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentuser) => {
         setLoading(false)
         setUser(currentuser);
+
+        if(currentuser) {
+          setDoc(doc(db, 'users', currentuser.uid), {
+            userId: currentuser.uid,
+            email: currentuser.email,
+            displayName: currentuser.displayName,
+            photoURL: currentuser.photoURL
+        })
+        }
+        
+        
     });
 
     return () => {
       unsubscribe();
     };
-  }, []);
+  }, [user]);
 
   return (
     <userAuthContext.Provider
-      value={{ user, logIn, signUp, logOut, resetPasswordEmail, updateUserPassword, updateUserEmail, updateUserName, updateUserPhoto }}
+      value={value}
     >
       {!loading && children}
     </userAuthContext.Provider>

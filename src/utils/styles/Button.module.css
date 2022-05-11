@@ -10,8 +10,15 @@
     cursor: pointer;
 }
 
+.wrapper:disabled {
+    background-color: #ff96a6;
+    cursor: default;
+} 
+
 .link {
+    all: unset;
     text-decoration: none;
     color: #D7465B;
     margin: 10px 0px;
+    cursor: pointer;
 }

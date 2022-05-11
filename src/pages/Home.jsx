@@ -1,6 +1,7 @@
 import { useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import { Dashboard } from "../components/Dashboard/Dashboard"
+import { InviteCard } from "../components/Dashboard/Invites"
 import { RoomsCollection } from "../components/Dashboard/RoomsCollection"
 import { useUserAuth } from "../utils/context/AuthContext"
 import dashboard from "../utils/styles/Dashboard.module.css"
@@ -13,6 +14,7 @@ export const Home = () => {
         if(user === null) {
             navigate("/login")
         }
+        
     }, [user, navigate])
         
     return(
@@ -21,6 +23,9 @@ export const Home = () => {
             <h1>Welcome <i>{user.displayName || user.email}</i> !</h1>
             <Dashboard user={user} />
             <RoomsCollection user={user} />
+
+            <InviteCard />
+            
         </section>           
     )
 }

@@ -16,7 +16,7 @@ export const RoomsCollection = ({user}) => {
                 doc.data()
             )))
         } )
-    }, [])
+    }, [rooms])
 
     return(
         <>

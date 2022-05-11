@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import {  useState } from "react"
 import signupstyle from "../../utils/styles/Form.module.css"
 import { useUserAuth } from "../../utils/context/AuthContext"
 import { Link, useNavigate } from "react-router-dom";
@@ -9,7 +9,6 @@ export const Signup = () => {
     const [password, setPassword] = useState();
     const [passwordConfirm, setPasswordConfirm] = useState();
     const { signUp } = useUserAuth();
-    const { user } = useUserAuth()
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
 
@@ -32,19 +31,18 @@ export const Signup = () => {
                 try {
                     setError('')
                     setLoading(true)
-                    await  signUp(email, password)
-                    navigate("/login")
+                    await  signUp(email, password)    
+                    
+                    navigate('/login')
                 }
                 catch(err) {
                     setError(`Failed to create an account.`+err.message) 
-                }
+                } 
                 setLoading(false)  
+            }
         }
-    }
 
-    useEffect(() => {
-        if(user) { navigate("/")}
-    }, [user, navigate])
+
 
     if(loading) { return(<>Loading...</>)}
 

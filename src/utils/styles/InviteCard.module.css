@@ -1,0 +1,27 @@
+.container { margin: 40px 0px}
+
+.cardWrapper {
+    background-color: white;
+    border-radius: 10px;
+    width: 450px;
+    height: 75px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0px 2px 4px rgba(63, 63, 63, 0.3);
+    padding: 5px 15px;
+    box-sizing: border-box;
+}
+
+
+.buttons {
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+}
+
+@media screen and (max-width: 600px) {
+    .cardWrapper { width: 100%; font-size: 14px;}
+    .buttons { width: 55%;}
+}

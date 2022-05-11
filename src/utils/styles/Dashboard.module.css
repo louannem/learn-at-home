@@ -40,3 +40,8 @@
 .roomCollection a, .newRoom a {
     color:#D7465B;
 }
+
+
+@media screen and (max-width: 600px) {
+    .wrapper { padding: 20px}
+}
