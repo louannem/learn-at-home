@@ -37,5 +37,5 @@ Things to improve and implement :
 - [x] Better handling of forms errors
 - [x] Add a group description
 - [x] Invite user in chatroom function
-- [\] Edit a chatroom infos functions throught a menu
+- [ ] Edit a chatroom infos functions throught a menu
 - [x] Add user infos in a new db collection
