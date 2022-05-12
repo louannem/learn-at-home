@@ -7,3 +7,10 @@
     flex-direction: column;
 }
 
+
+.defaultWrapper {
+    padding: 20px 50px;
+    box-sizing: border-box;
+    height: 100%;
+}
+

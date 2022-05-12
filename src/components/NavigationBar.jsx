@@ -65,6 +65,7 @@ export const NavigationBar = () => {
                     <ul>
                        {user ? 
                        <>
+                        <li onClick={closeMenu}><Link to="/rooms-list">Rooms</Link></li>
                         <li onClick={closeMenu}><Link to="/new-room">New room</Link></li>
                         <li onClick={handleLogout}><Link to="/login">Logout</Link></li>
                        </> 

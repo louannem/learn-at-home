@@ -1,0 +1,36 @@
+.roomsGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 200px);
+}
+
+.roomsGrid > a {
+    all: unset;
+    width: 200px;
+    height: 100px;
+    background-color: white;
+    border-radius: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 2px 4px rgba(63, 63, 63, 0.3);
+    margin: 0px 10px;
+
+    cursor: pointer;
+}
+
+.roomsGrid a  article { display: flex; flex-direction: column; align-items: center; justify-content: center;}
+
+.roomsGrid > a:first-child {
+    margin-left: 0px ;
+}
+
+.roomsGrid > a:last-child {
+    margin-right: 0px ;
+}
+
+.roomsGrid a span {
+    color: #D7465B;
+}
+
+.roomsGrid a p { margin: 0; color: grey; font-size: 12px;}
