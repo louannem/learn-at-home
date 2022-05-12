@@ -33,12 +33,12 @@ Things to improve and implement :
 - [x] Quit a chatroom button styling
 - [x] List of current users in a chatroom
 - [x] Page listing every available chatrooms
-- [ ] Search system for available chatrooms
 - [x] Better handling of forms errors
 - [x] Add a group description
 - [x] Invite user in chatroom function
-- [ ] Edit a chatroom infos functions throught a menu
 - [x] Add user infos in a new db collection
 - [x] User menu in navbar for profile/updatinginfo/notifications
 - [x] Optimize dashboard UI
 - [ ] Hide chatroom header in mobile version
+- [ ] Edit a chatroom infos functions throught a menu
+- [ ] Search system for available chatrooms
