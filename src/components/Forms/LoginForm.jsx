@@ -35,9 +35,7 @@ export const LoginForm = () => {
             catch(err) {
                 setError(`Failed to create an account : unknown email or password`) 
             }
-
         }
-
         setLoading(false)
     }
 
@@ -50,7 +48,7 @@ export const LoginForm = () => {
                 <input className={signupstyle.input} type='text' id="login-email" onChange={(e) => setEmail(e.target.value)} placeholder="Email"></input>
 
                 <label htmlFor="login-password"></label>
-                <input className={signupstyle.input} type='text' id="login-password" onChange={(e) => setPassword(e.target.value)} placeholder="Password"></input>
+                <input className={signupstyle.input} type='password' id="login-password" onChange={(e) => setPassword(e.target.value)} placeholder="Password"></input>
 
                 <button disabled={loading} type="submit">Login</button>
             </form>

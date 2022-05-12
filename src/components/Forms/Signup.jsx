@@ -56,10 +56,10 @@ export const Signup = () => {
                 <input className={signupstyle.input} type='text' id="login-email" onChange={(e) => setEmail(e.target.value)} placeholder="Email"></input>
 
                 <label htmlFor="login-password"></label>
-                <input className={signupstyle.input} type='text' id="login-password" onChange={(e) => setPassword(e.target.value)} placeholder="Password"></input>
+                <input className={signupstyle.input} type='password' id="login-password" onChange={(e) => setPassword(e.target.value)} placeholder="Password"></input>
 
                 <label htmlFor="login-password-confirm"></label>
-                <input className={signupstyle.input} type='text' id="login-password-confirm" onChange={(e) => setPasswordConfirm(e.target.value)} placeholder="Password confirmation"></input>
+                <input className={signupstyle.input} type='password' id="login-password-confirm" onChange={(e) => setPasswordConfirm(e.target.value)} placeholder="Password confirmation"></input>
                 <button disabled={loading} type="submit">Login</button>
             </form>
 

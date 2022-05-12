@@ -1,6 +1,6 @@
 .roomsGrid {
     display: grid;
-    grid-template-columns: repeat(4, 200px);
+    grid-template-columns: repeat(4, 25%);
 }
 
 .roomsGrid > a {
