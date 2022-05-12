@@ -39,6 +39,6 @@ Things to improve and implement :
 - [x] Invite user in chatroom function
 - [ ] Edit a chatroom infos functions throught a menu
 - [x] Add user infos in a new db collection
-- [ ] User menu in navbar for profile/updatinginfo/notifications
+- [x] User menu in navbar for profile/updatinginfo/notifications
 - [x] Optimize dashboard UI
 - [ ] Hide chatroom header in mobile version

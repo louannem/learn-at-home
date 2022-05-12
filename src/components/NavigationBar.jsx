@@ -8,21 +8,15 @@ import { useState } from "react"
 
 import navbar from "../utils/styles/Navbar.module.css"
 import animation from "../utils/styles/animations.module.css"
+import { UserMenu } from "./Navbar/UserMenu"
 
 export const NavigationBar = () => {
-    const navigate = useNavigate()
-    const { logOut } = useUserAuth()
     const { user } = useUserAuth()
 
     const [isOpen, setIsOpen] = useState(false)
     const[rollUpDown, setRoll] = useState(0)
+    const [userMenu, setUserMenu] = useState(false)
 
-    const handleLogout = (e) => {
-        e.preventDefault()
-        logOut()
-        closeMenu()
-        navigate("/login")
-    }
 
     const toggleMenu = () => { setIsOpen(!isOpen)}
 
@@ -33,8 +27,9 @@ export const NavigationBar = () => {
         } else {
             setRoll(1)
         }
-       
     }
+
+    const showUserMenu = () => { setUserMenu(!userMenu)}
 
     return(
         <>
@@ -45,10 +40,12 @@ export const NavigationBar = () => {
                 
                 <ul className={navbar.navbarLinks}>
                     {user &&   
-                    <Link to="/update-profile">
+                    <div onClick={showUserMenu}>
                         <img src={user.photoURL} alt="User profile" className={navbar.userPhoto} />
                         <span>{user.displayName}</span>
-                    </Link> }
+
+                        {userMenu && <UserMenu /> }
+                    </div> }
                       
                     <li className={navbar.closeMenu}  onClick={closeMenu}>
                     {!isOpen ? 
@@ -67,7 +64,6 @@ export const NavigationBar = () => {
                        <>
                         <li onClick={closeMenu}><Link to="/rooms-list">Rooms</Link></li>
                         <li onClick={closeMenu}><Link to="/new-room">New room</Link></li>
-                        <li onClick={handleLogout}><Link to="/login">Logout</Link></li>
                        </> 
 
                        :

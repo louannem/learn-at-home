@@ -30,6 +30,11 @@
     align-items: center;
 }
 
+.navbarLinks div { 
+    display: flex;
+    align-items: center;
+}
+
 .navbarLinks li { height: 34px; list-style: none; cursor: pointer; margin: 0px 5px; display: flex; align-items: center; }
 
 .userPhoto {
