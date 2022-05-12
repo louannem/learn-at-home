@@ -6,7 +6,7 @@ import modal from "../../utils/styles/Modal.module.css"
 import button from "../../utils/styles/Button.module.css"
 import { useState } from "react"
 
-export const UserCard = ({sendTo, room}) => {
+export const UserCard = ({sendTo, room, inviteButton}) => {
     let {user} = useUserAuth()
 
     const [buttonText, setButtonText] = useState('Invite')
@@ -29,9 +29,11 @@ export const UserCard = ({sendTo, room}) => {
 
     return (
         <article className={modal.userCard}>
-            <img src={sendTo.photoURL || 'https://image.shutterstock.com/image-vector/blank-avatar-photo-place-holder-600w-1114445501.jpg'} alt='User profile' />
-            {sendTo.displayName}
-            <button onClick={sendInvite} className={button.wrapper} disabled={disableButton}>{buttonText}</button>
+            <div className={modal.userCardInfo}>
+                <img src={sendTo.photoURL || 'https://image.shutterstock.com/image-vector/blank-avatar-photo-place-holder-600w-1114445501.jpg'} alt='User profile' />
+                <span>{sendTo.displayName}</span>
+            </div>
+            {inviteButton && <button onClick={sendInvite} className={button.wrapper} disabled={disableButton}>{buttonText}</button>}
         </article>
     )
 }

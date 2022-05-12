@@ -1,9 +1,11 @@
 import { collection, deleteDoc, doc, onSnapshot, query, where } from "firebase/firestore"
 import { useEffect, useState } from "react"
-import {BsFillTrashFill, BsFillPlusCircleFill} from "react-icons/bs"
+import {BsFillTrashFill, BsFillPersonPlusFill, BsPencilSquare} from "react-icons/bs"
 import { useNavigate } from "react-router-dom"
 import { useUserAuth } from "../../utils/context/AuthContext"
 import { db } from "../../utils/firebase"
+
+import chat from "../../utils/styles/Chat.module.css"
 
 export const RoomOptions = ({room, showValue}) => {
     const navigate = useNavigate()
@@ -45,9 +47,10 @@ export const RoomOptions = ({room, showValue}) => {
     }, [roomCollId, room, appUsers])
 
     return(
-        <div>
+        <div className={chat.optionsWrapper}>
             {user.uid === room.roomCreator && <BsFillTrashFill onClick={deleteRoom} />}
-            <BsFillPlusCircleFill onClick={openModal} />
+            <BsFillPersonPlusFill onClick={openModal} />
+            {user.uid === room.roomCreator && <BsPencilSquare />}
         </div>
     )
 }

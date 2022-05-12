@@ -33,10 +33,18 @@
     padding: 10px 0px;
 }
 
+.userCardInfo {
+    display: flex;
+    min-width: 40%;
+    justify-content: flex-start;
+    align-items: center;
+}
+
 .userCard img { 
     width: 40px; 
     height: 40px; 
     border-radius: 100px;
     object-fit: cover;
+    margin-right: 20px;
 }
 

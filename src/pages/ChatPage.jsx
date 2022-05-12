@@ -29,7 +29,9 @@ export const ChatPage = () => {
 
     //Modal
     const [show, setShow] = useState(false)
+    const [showUserList, setShowList] = useState(false)
     const changeShow = () => { setShow(!show) ; }
+    const changeshowList = () => {setShowList(!showUserList)}
     
     const updateConst = (room) => {
         setCurrentRoom(room)
@@ -54,7 +56,7 @@ export const ChatPage = () => {
         onSnapshot(qUser, userSnapshop => {
             userSnapshop.docs.map((doc) => { 
                 if(users.includes(doc.data().userId)) {
-                    userArray.push(doc.data().displayName)
+                    userArray.push(doc.data())
                 } else if(!users.includes(doc.data().userId) && user.uid !== doc.data().userId) {
                     appUserArray.push(doc.data())
                 }
@@ -63,15 +65,15 @@ export const ChatPage = () => {
                 return userNames
             })  
         })
-    }, [])
+    }, [userNames])
     
     return(
         currentRoom && 
         <main className={chat.mainWrapper}>
            <h1>{currentRoom.roomName}</h1>
-           {currentRoom.description ?<p>{currentRoom.description} </p> : ''}
+           {currentRoom.roomDesc ?<p>{currentRoom.roomDesc} </p> : ''}
  
-           {users && <span>{users.length} user{users.length > 1 ? 's' : '' } in this room</span> }
+           {users && <span onClick={changeshowList} className={chat.currentUser}>{users.length} user{users.length > 1 ? 's' : '' } in this room</span> }
 
            <RoomOptions room={currentRoom} showValue={setShow} />
 
@@ -86,8 +88,28 @@ export const ChatPage = () => {
                     </header>
                     <section>
                     {appUsers && appUsers.map(user => 
-                        <UserCard sendTo={user} key={user.userId} room={currentRoom} />
+                        <UserCard sendTo={user} key={user.userId} room={currentRoom} inviteButton={true} />
                     )}
+                    </section>
+                </div>
+            </Modal>
+            }
+
+            
+            {showUserList &&
+                <Modal>
+                <div className={modal.container}>
+                    <header>
+                        <h1>Users</h1>
+                        <BsXLg onClick={changeshowList} />
+                    </header>
+                    <section>
+                    {currentRoom.users.length > 0 ? userNames.map((user, index) => 
+                       
+                        <UserCard inviteButton={false} sendTo={user} key={`user-${index}`} />
+                    ) :
+                    <p>No user in this room !</p>
+                    }
                     </section>
                 </div>
             </Modal>
