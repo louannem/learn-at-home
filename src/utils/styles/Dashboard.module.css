@@ -1,14 +1,28 @@
 .wrapper {
-    padding: 20px 50px;
+    padding: 0px 50px 50px 20px;
     box-sizing: border-box;
     height: 100%;
 }
 
 .section {
-    margin: 20px 0px;
+    margin: 0px;
     height:auto;
     display: flex;
+    align-items: center;
+}
+.section h1 { font-size: 25px;}
+.section img { height: 40px ; width: 40px; margin-left: 20px;}
+
+.content {
+    display: flex;
+    align-items: flex-start;
+}
+
+.content > section { 
+    min-width: 400px;
+    display: flex;
     flex-direction: column;
+    align-items: flex-start;
 }
 
 .ctaButton {
@@ -33,9 +47,21 @@
 
 .roomCollection {
     display: grid;
-    grid-template-columns: repeat(4, 220px);
+    grid-template-columns: repeat(2, 220px);
     margin-top: 20px;
 }
+
+.wrapper h2::before {
+    content: '-';
+    height: 100%;
+    width: 10px;
+    background-color: #D7465B;
+    color: #D7465B;
+    margin-right: 5px;
+    font-size: 22px;
+}
+
+.roomCollection > * { margin-bottom: 20px;}
 
 .roomCollection a, .newRoom a {
     color:#D7465B;
@@ -44,4 +70,18 @@
 
 @media screen and (max-width: 600px) {
     .wrapper { padding: 20px}
+
+    .content { 
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .content > section { min-width: 0px; max-width: 100%; }
+
+    .roomCollection {
+        width: 100%;
+        grid-template-columns: repeat(1, 100%);
+    }
+    .roomCollection a { margin-bottom: 10px;}
+    .roomCollection a article{ width: 100%;}
 }

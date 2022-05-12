@@ -5,9 +5,9 @@
 
 .roomsGrid > a {
     all: unset;
-    width: 200px;
+    width: 90%;
     height: 100px;
-    background-color: white;
+    background-color: #D7465B;
     border-radius: 10px;
 
     display: flex;
@@ -30,7 +30,17 @@
 }
 
 .roomsGrid a span {
-    color: #D7465B;
+    color: #ffff;
 }
 
-.roomsGrid a p { margin: 0; color: grey; font-size: 12px;}
+.roomsGrid a p { margin: 0; color: #ffff; font-size: 12px;}
+
+
+@media screen and (max-width: 600px) {
+    .roomsGrid {
+        grid-template-columns: repeat(1, 100%);
+    }
+    .roomsGrid a { margin-bottom: 10px; width: 100%; margin: 0px 0px 20px 0px}
+    .roomsGrid a article{ width: 100%;}
+
+}

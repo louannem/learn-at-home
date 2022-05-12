@@ -12,9 +12,9 @@ export const Dashboard = ({user}) => {
     return(
         <>
             <section className={dashboard.section}>
+                <h1>Welcome <i>{user.displayName} !</i></h1>
                 <img src={user.photoURL} alt="User profile" className={dashboard.userProfile} />
             </section>
-            <Link to="/update-profile" className={dashboard.ctaButton}>Update profile</Link>
         </>
     )
 }

@@ -20,11 +20,12 @@ export const Home = () => {
     return(
         user && 
         <section className={dashboard.wrapper}>
-            <h1>Welcome <i>{user.displayName || user.email}</i> !</h1>
             <Dashboard user={user} />
-            <RoomsCollection user={user} />
-
-            <InviteCard />
+            <section className={dashboard.content}>
+                <RoomsCollection user={user} />
+                <InviteCard />
+            </section>
+            
             
         </section>           
     )

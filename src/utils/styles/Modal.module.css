@@ -33,6 +33,8 @@
     padding: 10px 0px;
 }
 
+.userCard button { margin: 0}
+
 .userCardInfo {
     display: flex;
     min-width: 40%;

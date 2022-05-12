@@ -3,7 +3,7 @@
 .wrapper {
     width: 200px;
     height: 100px;
-    background-color: white;
+    background-color: #D7465B;
     border-radius: 10px;
 
     display: flex;
@@ -13,5 +13,5 @@
 }
 
 .wrapper span {
-    color: #D7465B;
+    color: #ffff;
 }

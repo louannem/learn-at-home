@@ -2,7 +2,7 @@ import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import newRoom from "../../utils/styles/Form.module.css"
 import logo from "../../assets/logo.svg"
-import { addDoc, collection} from "firebase/firestore"
+import { doc, setDoc} from "firebase/firestore"
 import { db } from "../../utils/firebase"
 import { useUserAuth } from "../../utils/context/AuthContext"
 
@@ -22,7 +22,7 @@ export const RoomForm = () => {
         if(room === undefined) {
             setError("You need to give a name to your room  !")
         } else {
-            await addDoc(collection(db, 'rooms'), {
+            await setDoc(doc(db, 'rooms', roomId.toString()), {
                 roomName: room,
                 roomDesc: description,
                 roomId: roomId,

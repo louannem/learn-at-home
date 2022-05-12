@@ -19,7 +19,7 @@ export const RoomsCollection = ({user}) => {
     }, [rooms])
 
     return(
-        <>
+        <section className={dashboard.wrapper}>
             <h2>Rooms</h2> 
             {rooms.length > 0 && <span className={dashboard.newRoom}>You are part of {rooms.length} room{rooms.length > 1 ? 's' : ''}. Try and <Link to="/new-room">create a new one</Link> !</span>}
             <div className={dashboard.roomCollection}>
@@ -29,7 +29,7 @@ export const RoomsCollection = ({user}) => {
             <span>You are not part of any room ! <Link to="/new-room">Try to create one</Link>.</span>
             }
             </div>
-        </>
+        </section>
         
 
 

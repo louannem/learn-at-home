@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { ChatFeed } from "../components/Chat/ChatFeed"
 import { RoomOptions } from "../components/Chat/RoomOptions"
-import { Modal } from "../components/Modal"
+import { Modal } from "../components/Modal/Modal"
 import { db } from "../utils/firebase"
 
 import { BsXLg } from 'react-icons/bs'

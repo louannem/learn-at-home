@@ -49,7 +49,7 @@ export const RoomOptions = ({room, showValue}) => {
     return(
         <div className={chat.optionsWrapper}>
             {user.uid === room.roomCreator && <BsFillTrashFill onClick={deleteRoom} />}
-            <BsFillPersonPlusFill onClick={openModal} />
+            {room.users.includes(user.uid) && <BsFillPersonPlusFill onClick={openModal} /> }
             {user.uid === room.roomCreator && <BsPencilSquare />}
         </div>
     )

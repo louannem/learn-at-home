@@ -1,4 +1,14 @@
-.container { margin: 40px 0px}
+.container { margin: 0px}
+
+.container h2::before {
+    content: '-';
+    height: 100%;
+    width: 10px;
+    background-color: #D7465B;
+    color: #D7465B;
+    margin-right: 5px;
+    font-size: 22px;
+}
 
 .cardWrapper {
     background-color: white;
