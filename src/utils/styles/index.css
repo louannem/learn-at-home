@@ -1,8 +1,8 @@
 body, html {
     margin: 0;
     height: 100%;
-
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+*, form, input { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif!important; }
 
 #root { height: 100%;}
