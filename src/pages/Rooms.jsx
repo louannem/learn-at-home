@@ -23,14 +23,17 @@ export const Rooms = () => {
                 <h1>Available rooms</h1>
 
                 <section className={roomsPage.roomsGrid}>
-                    {roomsList && roomsList.map((room, index) => (
+                    {roomsList.length > 0 ? roomsList.map((room, index) => (
                         <Link to={`/chatroom/${room.roomId}`}  key={index}>
                             <article>
                                 <span>#{room.roomName}</span>
                                 <p>{room.users.length} users</p>
                             </article>
                         </Link>
-                    ))}
+                    ))
+                :
+                <p>No room are available for now. <Link to="new-room">Create your own</Link> !</p>
+                }
                 </section>
             </section>
         </main>

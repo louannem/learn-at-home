@@ -32,7 +32,7 @@ Things to improve and implement :
 - [x] Navbar menu
 - [x] Quit a chatroom button styling
 - [ ] List of current users in a chatroom
-- [ ] Page listing every available chatrooms
+- [x] Page listing every available chatrooms
 - [ ] Search system for available chatrooms
 - [x] Better handling of forms errors
 - [x] Add a group description

@@ -17,6 +17,8 @@ export const ChatFeed = ({currentChat}) => {
     const [roomId, setRoomId] = useState()
     const [usersArray, setUsersArray] = useState([])
 
+    const [inRoom, setInRoom] = useState()
+
     const {user} = useUserAuth()
     const navigate = useNavigate()
 
@@ -63,6 +65,18 @@ export const ChatFeed = ({currentChat}) => {
         navigate('/')
     }
 
+
+    const joinRoom = async(e) => {
+        e.preventDefault()
+
+        setUsersArray([...usersArray, user.uid])
+        
+        //Updates the rooms users' data
+        await updateDoc(doc(db, 'rooms', roomId), {
+            users: [...usersArray, user.uid ]
+        })
+    }
+
     useEffect(() => {
         //Gets room Id & its users
         const q2 =  query(collection(db, "rooms"), where("roomId", "==", Number(currentChat)));
@@ -73,6 +87,10 @@ export const ChatFeed = ({currentChat}) => {
                 return doc
             })
         })
+
+        if(usersArray.includes(user.uid)) {
+            setInRoom(true)
+        }
         
         //Gets messages
         if(roomId) {
@@ -87,17 +105,23 @@ export const ChatFeed = ({currentChat}) => {
             })
         }
 
-    }, [roomId])
+    }, [roomId, currentChat, usersArray, user.uid])
 
     return(
         <>
-            <button onClick={exit} className={button.wrapper}>Exit</button>
+            {inRoom ? <button onClick={exit} className={button.wrapper}>Exit</button> 
+            : <button onClick={joinRoom} className={button.wrapper}>Join</button> 
+            }
+
+            
             <section className={chat.wrapper}>
                 {messages.map((mess, index) => (
                     <Message message={mess} key={`${mess.id}-message-${index}`} />
                 ))}
                 {messages.length === 0 && <p className={chat.noMessage}>No message to display. Start by sending a message !</p>}
             </section>
+
+
             <form onSubmit={sendMessage} className={chat.form}>
                 <input value={formValue} onChange={(e) => setValue(e.target.value)}className={chat.input} />
                 <button type='submit'className={chat.button}>✨</button>
