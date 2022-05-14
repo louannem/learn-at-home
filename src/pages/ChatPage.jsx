@@ -6,7 +6,7 @@ import { RoomOptions } from "../components/Chat/RoomOptions"
 import { Modal } from "../components/Modal/Modal"
 import { db } from "../utils/firebase"
 
-import { BsXLg, BsChevronCompactDown, BsChevronCompactUp } from 'react-icons/bs'
+import { BsXLg, BsChevronCompactDown, BsChevronCompactUp, BsPencilSquare } from 'react-icons/bs'
 
 import chat from "../utils/styles/Chat.module.css"
 import modal from "../utils/styles/Modal.module.css"
@@ -176,6 +176,7 @@ export const ChatPage = () => {
                     </header>
                     <section>
                     <form className={editRoom.formWrapper} onSubmit={updateRoom}>
+                        <BsPencilSquare />
                         <label htmlFor="room-name"></label>
                         <input className={editRoom.input} type='text' id="room-name" onChange={(e) => setRoomName(e.target.value)} placeholder="Room name"></input>
 

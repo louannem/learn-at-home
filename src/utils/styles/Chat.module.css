@@ -15,11 +15,11 @@
     height: 20px;
 }
 
-.mainWrapper h1 { margin: 0 }
+.mainWrapper h1 { margin: 0 ; margin-bottom: 10px;}
 .mainWrapper p { 
     color: gray;
 }
-.mainWrapper button { margin-top: 10px;}
+.mainWrapper button { margin-top: 0px;}
 
 .wrapper {
     width: 100%;
