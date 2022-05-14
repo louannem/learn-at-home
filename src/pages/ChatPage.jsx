@@ -1,4 +1,4 @@
-import { collection, onSnapshot, query, where } from "firebase/firestore"
+import { collection, doc, onSnapshot, query, updateDoc, where } from "firebase/firestore"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { ChatFeed } from "../components/Chat/ChatFeed"
@@ -10,6 +10,8 @@ import { BsXLg } from 'react-icons/bs'
 
 import chat from "../utils/styles/Chat.module.css"
 import modal from "../utils/styles/Modal.module.css"
+import editRoom from "../utils/styles/Form.module.css"
+
 import { UserCard } from "../components/Modal/UserCard"
 import { useUserAuth } from "../utils/context/AuthContext"
 
@@ -22,6 +24,9 @@ export const ChatPage = () => {
 
     //Rooms infos
     const [currentRoom, setCurrentRoom] = useState()
+    const [roomName, setRoomName] = useState()
+    const [roomDesc, setRoomDesc] = useState()
+    const [roomId, setRoomId] = useState()
 
     //Users infos
     const [users, setUsers] = useState([])
@@ -30,12 +35,33 @@ export const ChatPage = () => {
     //Modal
     const [show, setShow] = useState(false)
     const [showUserList, setShowList] = useState(false)
+    const [showEditForm, setShowEdit] = useState(false)
     const changeShow = () => { setShow(!show) ; }
     const changeshowList = () => {setShowList(!showUserList)}
+    const changeShowEditForm = () => {setShowEdit(!showEditForm)}
+    
     
     const updateConst = (room) => {
         setCurrentRoom(room)
         setUsers(room.users)
+    }
+
+    const updateRoom = (e) => {
+        e.preventDefault()
+
+        if(roomName !== currentRoom.roomName && roomName !== undefined) {
+            updateDoc(doc(db, 'rooms', roomId), {
+                roomName: roomName
+            })
+        }
+
+        if(roomDesc !== currentRoom.roomDesc && roomDesc !== undefined) {
+            updateDoc(doc(db, 'rooms', roomId), {
+                roomDesc: roomDesc
+            })
+        } 
+
+        changeShowEditForm(setShowEdit(false))
     }
 
     useEffect(() => {
@@ -43,7 +69,8 @@ export const ChatPage = () => {
         const q =  query(collection(db, "rooms"), where("roomId", "==", Number(currentChat)));
         onSnapshot(q, querySnapshot => {
            querySnapshot.docs.map(doc => (            
-               updateConst(doc.data())               
+               updateConst(doc.data()),
+               setRoomId(doc.id)             
             ))
         })
 
@@ -75,7 +102,7 @@ export const ChatPage = () => {
  
            {users && <span onClick={changeshowList} className={chat.currentUser}>{users.length} user{users.length > 1 ? 's' : '' } in this room</span> }
 
-           <RoomOptions room={currentRoom} showValue={setShow} />
+           <RoomOptions room={currentRoom} showValue={setShow} showEditForm={setShowEdit} />
 
             <ChatFeed currentChat={currentChat}  /> 
 
@@ -112,6 +139,27 @@ export const ChatPage = () => {
                     }
                     </section>
                 </div>
+            </Modal>
+            }
+
+            {showEditForm &&
+            <Modal>
+                <div className={modal.container}>
+                    <header>
+                        <h1>Edit room</h1>
+                        <BsXLg onClick={changeShowEditForm} />
+                    </header>
+                    <section>
+                    <form className={editRoom.formWrapper} onSubmit={updateRoom}>
+                        <label htmlFor="room-name"></label>
+                        <input className={editRoom.input} type='text' id="room-name" onChange={(e) => setRoomName(e.target.value)} placeholder="Room name"></input>
+
+                        <input className={editRoom.input} type='text'  maxLength="200" id="room-name" onChange={(e) => setRoomDesc(e.target.value)} placeholder="Room description"></input>
+                        <button type="submit">Edit room</button>
+                    </form>
+                    </section>
+                </div>
+
             </Modal>
             }
         </main>

@@ -40,5 +40,6 @@ Things to improve and implement :
 - [x] User menu in navbar for profile/updatinginfo/notifications
 - [x] Optimize dashboard UI
 - [ ] Hide chatroom header in mobile version
-- [ ] Edit a chatroom infos functions throught a menu
+- [x] Edit a chatroom infos functions throught a menu
 - [ ] Search system for available chatrooms
+- [ ] 404 page

@@ -1,6 +1,6 @@
 .navbar { min-height: 0px; overflow: hidden; z-index: -1; transform: translateY(-60px); margin-bottom: 60px;}
 .navbar[rolldown='1'] {
-    animation: rollDown 0.8s forwards ;
+    animation: rollDown 0.5s forwards ;
 }
 
 
