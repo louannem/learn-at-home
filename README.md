@@ -39,7 +39,7 @@ Things to improve and implement :
 - [x] Add user infos in a new db collection
 - [x] User menu in navbar for profile/updatinginfo/notifications
 - [x] Optimize dashboard UI
-- [ ] Hide chatroom header in mobile version
+- [x] Hide chatroom header in mobile version
 - [x] Edit a chatroom infos functions throught a menu
 - [ ] Search system for available chatrooms
 - [ ] 404 page

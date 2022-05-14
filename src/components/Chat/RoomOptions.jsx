@@ -19,6 +19,8 @@ export const RoomOptions = ({room, showValue, showEditForm}) => {
         navigate('/')
     }
 
+
+    //Functions to open/close the modals
     const openModal = () => { showValue(true) }
     const changeShowEditForm = () => { showEditForm(true) }
         

@@ -6,7 +6,7 @@ import { RoomOptions } from "../components/Chat/RoomOptions"
 import { Modal } from "../components/Modal/Modal"
 import { db } from "../utils/firebase"
 
-import { BsXLg } from 'react-icons/bs'
+import { BsXLg, BsChevronCompactDown, BsChevronCompactUp } from 'react-icons/bs'
 
 import chat from "../utils/styles/Chat.module.css"
 import modal from "../utils/styles/Modal.module.css"
@@ -32,7 +32,10 @@ export const ChatPage = () => {
     const [users, setUsers] = useState([])
     const [userNames, setUserNames] = useState([])
 
-    //Modal
+    //Const for hiding chatroom's header
+    const [showHeader, setShowHeader] = useState(false)
+
+    //Modal const & functions to open/close
     const [show, setShow] = useState(false)
     const [showUserList, setShowList] = useState(false)
     const [showEditForm, setShowEdit] = useState(false)
@@ -46,6 +49,11 @@ export const ChatPage = () => {
         setUsers(room.users)
     }
 
+
+    /**
+     * Updates a chatroom's infos when the form's inputs are completed & close the modal
+     * @param {*} e 
+     */
     const updateRoom = (e) => {
         e.preventDefault()
 
@@ -63,6 +71,12 @@ export const ChatPage = () => {
 
         changeShowEditForm(setShowEdit(false))
     }
+
+
+    const displayHeader = () => {
+        setShowHeader(!showHeader)
+    }
+    
 
     useEffect(() => {
         //Gets room's name, description and users' id
@@ -97,12 +111,23 @@ export const ChatPage = () => {
     return(
         currentRoom && 
         <main className={chat.mainWrapper}>
-           <h1>{currentRoom.roomName}</h1>
-           {currentRoom.roomDesc ?<p>{currentRoom.roomDesc} </p> : ''}
- 
-           {users && <span onClick={changeshowList} className={chat.currentUser}>{users.length} user{users.length > 1 ? 's' : '' } in this room</span> }
+            <header>
+                {showHeader  ? <BsChevronCompactDown onClick={displayHeader} /> :
+                <BsChevronCompactUp onClick={displayHeader} />    }
+                <h1>{currentRoom.roomName}</h1>
+                
 
-           <RoomOptions room={currentRoom} showValue={setShow} showEditForm={setShowEdit} />
+               {showHeader && <section>
+                    {currentRoom.roomDesc ?<p>{currentRoom.roomDesc} </p> : ''}
+    
+                    {users && <span onClick={changeshowList} className={chat.currentUser}>{users.length} user{users.length > 1 ? 's' : '' } in this room</span> }
+
+                    <RoomOptions room={currentRoom} showValue={setShow} showEditForm={setShowEdit} />
+
+                </section>}
+                
+            </header>
+          
 
             <ChatFeed currentChat={currentChat}  /> 
 

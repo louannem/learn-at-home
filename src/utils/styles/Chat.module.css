@@ -6,11 +6,20 @@
     flex-direction: column;
 }
 
+.mainWrapper header { text-align: center; position: relative; width: 100%;}
+.mainWrapper > header > svg {
+    position: absolute;
+    top: 0;
+    left: 90%;
+    width: 20px;
+    height: 20px;
+}
+
 .mainWrapper h1 { margin: 0 }
 .mainWrapper p { 
     color: gray;
 }
-.mainWrapper button { margin-top: 0px;}
+.mainWrapper button { margin-top: 10px;}
 
 .wrapper {
     width: 100%;
@@ -140,4 +149,10 @@ svg {
     .form { width: 100%}
     .input { width: 65%}
     .button { width: 35%;}
+
+    .optionsWrapper svg { 
+        width: 17px;
+        height: 17px;
+        margin: 0px 7px
+    }
 }
