@@ -30,8 +30,5 @@ export const RoomsCollection = ({user}) => {
             }
             </div>
         </section>
-        
-
-
     )
 }
