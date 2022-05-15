@@ -13,6 +13,8 @@ import { ForgotPasswordPage } from './pages/ForgetPasswordPage';
 import { ChatPage } from './pages/ChatPage';
 import { NewRoom } from './pages/NewRoom';
 import { Rooms } from './pages/Rooms';
+import { NotificationsPage } from './pages/Notifications';
+import { ProfilePage } from './pages/ProfilePage';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -20,6 +22,7 @@ root.render(
     <HashRouter>
     <UserAuthContextProvider>
       <NavigationBar />
+      
       <Routes>
 
         <Route path="/" element={
@@ -53,6 +56,19 @@ root.render(
             }>
           </Route>
 
+          <Route path="/notifications" element={
+          <ProtectedRoute>
+            <NotificationsPage />
+          </ProtectedRoute>
+            }>
+          </Route>
+
+          <Route path="/user/:id" element={
+          <ProtectedRoute>
+            <ProfilePage />
+          </ProtectedRoute>
+            }>
+          </Route>
 
         <Route path="/login" element={<Login />}></Route>
         <Route path="/signup" element={<SignupPage />}></Route>

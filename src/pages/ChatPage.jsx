@@ -106,14 +106,15 @@ export const ChatPage = () => {
                 return userNames
             })  
         })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [userNames])
     
     return(
         currentRoom && 
         <main className={chat.mainWrapper}>
             <header>
-                {showHeader  ? <BsChevronCompactDown onClick={displayHeader} /> :
-                <BsChevronCompactUp onClick={displayHeader} />    }
+                {showHeader  ? <BsChevronCompactUp onClick={displayHeader} /> :
+                <BsChevronCompactDown onClick={displayHeader} />    }
                 <h1>{currentRoom.roomName}</h1>
                 
 

@@ -67,7 +67,6 @@
     min-width: 20px;
     max-width: 250px;
     height: auto;
-    border-radius: 5px;
     padding: 5px 10px;
     display: flex;
     align-items: center;
@@ -87,11 +86,13 @@
 
 .sent > div > div { 
     background-color: #EFEFEF;
+    border-radius: 5px 0px 5px 5px
 }
 
 .received  > div > div {
     background-color: #D7465B;
-    color: #ffffff
+    color: #ffffff;
+    border-radius: 0px 5px 5px 5px
 }
 
 svg {

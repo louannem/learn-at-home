@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { db } from "../../utils/firebase"
-import { addDoc, collection, doc, limit,  onSnapshot, orderBy, query, updateDoc, where } from "firebase/firestore"
+import {  collection, doc, limit,  onSnapshot, orderBy, query, setDoc, updateDoc, where } from "firebase/firestore"
 import { useUserAuth } from "../../utils/context/AuthContext"
 import { useNavigate } from "react-router-dom"
 
@@ -36,10 +36,13 @@ export const ChatFeed = ({currentChat}) => {
             })
         }
 
-        //Adds messages to a subcollection in curretn room datas
-        await addDoc(collection(db, 'rooms', roomId, 'messages'), {
+        let messageId = Math.floor(Math.random() * 10000)
+
+        //Adds messages to a subcollection in current room datas
+        await setDoc(doc(db, 'rooms', roomId, 'messages', messageId.toString()), {
             text: formValue,
             createdAt: new Date(),
+            messageId: messageId,
             uid: user.uid,
             photoURL: user.photoURL,
             sender : user.displayName,
@@ -92,7 +95,7 @@ export const ChatFeed = ({currentChat}) => {
             setInRoom(true)
         }
         
-        //Gets messages
+        //Gets messages in current rooms
         if(roomId) {
             const q =  query(collection(db, 'rooms', roomId, 'messages'), orderBy('createdAt'), limit(50));
             onSnapshot(q, querySnapshot => {
@@ -103,9 +106,23 @@ export const ChatFeed = ({currentChat}) => {
                     }
                 }))
             })
+
+            //Updates eeach message sender info in case they are modified
+            const messageDetails = query(collection(db, 'rooms', roomId, 'messages'))
+            onSnapshot(messageDetails, querySnapshot => {
+                querySnapshot.docs.map(message => {
+                    if(message.data().uid === user.uid) {                       
+                        const docRef = doc(db, 'rooms', roomId, 'messages', message.id)
+                        updateDoc(docRef, {
+                            sender: user.displayName,
+                            photoURL: user.photoURL
+                        })
+                    }
+                })
+            })
         }
 
-    }, [roomId, currentChat, usersArray, user.uid])
+    }, [roomId, currentChat, usersArray, user.uid, user.displayName, user.photoURL])
 
     return(
         <>

@@ -62,7 +62,6 @@ export const InviteCard = () => {
                     }
                     return (room, roomId, usersArray)
                 }
-                
             })
         })
     },[invites, user.uid, usersArray, room, roomId])

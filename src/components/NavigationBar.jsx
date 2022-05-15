@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom"
+import { Link } from "react-router-dom"
 import { useUserAuth } from "../utils/context/AuthContext"
 
 import logo from "../assets/logo.svg"
@@ -33,7 +33,6 @@ export const NavigationBar = () => {
 
     return(
         <>
-
             <nav className={navbar.navbar}>
                 <Link to="/"><img src={logo} alt="Learn@Home logo" className={navbar.logo} /></Link>
 

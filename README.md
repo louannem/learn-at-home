@@ -43,3 +43,5 @@ Things to improve and implement :
 - [x] Edit a chatroom infos functions throught a menu
 - [ ] Search system for available chatrooms
 - [ ] 404 page
+- [ ] User profile page
+- [ ] Notifications
