@@ -47,3 +47,4 @@ Things to improve and implement :
 - [ ] User profile page
 - [ ] User bio field
 - [ ] Notifications
+- [ ] Private chat option
