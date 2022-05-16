@@ -8,9 +8,10 @@ import dashboard from "../../utils/styles/Dashboard.module.css"
 
 export const RoomsCollection = ({user}) => {
     const [rooms, setRooms] = useState([])
+    const uid = user.uid || user.id.toString()
     
     useEffect(() => {
-        const q =  query(collection(db, "rooms"),  where('users', 'array-contains', user.uid));
+        const q =  query(collection(db, "rooms"),  where('users', 'array-contains', uid));
         onSnapshot(q, querySnapshot => {
             setRooms(querySnapshot.docs.map(doc => (
                 doc.data()

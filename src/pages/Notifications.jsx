@@ -30,7 +30,9 @@ export const NotificationsPage = () => {
                 <h1>Notifications ({invitesArray.length})</h1>
             </header>
             <section className={page.defaultWrapper}>
-                <NotificationsList invites={invitesArray}  />
+                {invitesArray.length > 0 ? <NotificationsList invites={invitesArray}  /> :
+                <p>No notification to display.</p> }
+
             </section>
             
         </main>

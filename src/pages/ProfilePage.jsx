@@ -1,6 +1,8 @@
-import {  doc, getDoc } from "firebase/firestore"
+import {  collection, doc, getDoc, onSnapshot, query, where } from "firebase/firestore"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
+import { CurrentRooms } from "../components/Dashboard/CurrentRooms"
+import { RoomsCollection } from "../components/Dashboard/RoomsCollection"
 import { ProfileHeader } from "../components/Profile/ProfileHeader"
 import { db } from "../utils/firebase"
 
@@ -13,6 +15,7 @@ export const ProfilePage = () => {
     const [loading, setLoading] = useState(true)
 
     const [userData, setUserData] = useState()
+    const [rooms, setRooms] = useState([])
 
 
 
@@ -32,6 +35,14 @@ export const ProfilePage = () => {
             }
         }
         getUserData()        
+
+        const q =  query(collection(db, "rooms"),  where('users', 'array-contains', param.id.toString()));
+        onSnapshot(q, querySnapshot => {
+            setRooms(querySnapshot.docs.map(doc => (
+                doc.data()
+            )))
+        })
+        console.log(rooms)
         
     }, [userId])
 
@@ -41,6 +52,8 @@ export const ProfilePage = () => {
         <main className={page.defaultWrapper}>
             <section>
                 <ProfileHeader user={userData} />
+                <RoomsCollection user={param} />
+                
             </section>
         </main>
     )
