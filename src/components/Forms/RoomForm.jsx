@@ -11,10 +11,16 @@ export const RoomForm = () => {
     const [description, setDescription] = useState('')
     const [error, setError] = useState()
 
+    const [checked, setChecked] = useState(false)
+
     const roomId = Math.floor(Math.random() * 1000)
     const {user} = useUserAuth()
 
     const navigate = useNavigate()
+
+    const handleCheckBox = () => {
+        setChecked(!checked)
+    }
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -27,12 +33,11 @@ export const RoomForm = () => {
                 roomDesc: description,
                 roomId: roomId,
                 roomCreator: user.uid,
-                users: [user.uid]
+                users: [user.uid],
+                private: checked
             })
             navigate(`/chatroom/${roomId}`)
-        }
-
-        
+        }  
     }
 
     return(
@@ -42,6 +47,17 @@ export const RoomForm = () => {
                 <img src={logo} alt="learn at home" />
                 <label htmlFor="room-name"></label>
                 <input className={newRoom.input} type='text' id="room-name" onChange={(e) => setRoom(e.target.value)} placeholder="Room name"></input>
+
+                <label>
+                    <input
+                        type='checkbox' 
+                        value='Make this room private'
+                        checked={checked}
+                        onChange={handleCheckBox}
+                    />
+                    Make this room private
+                </label>
+                    
 
                 <input className={newRoom.input} type='text'  maxLength="200" id="room-name" onChange={(e) => setDescription(e.target.value)} placeholder="Room description"></input>
                 <button type="submit">Create room</button>

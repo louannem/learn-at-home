@@ -47,5 +47,5 @@ Things to improve and implement :
 - [x] User profile page
 - [x] User bio field
 - [ ] Notifications
-- [ ] Private chat option
+- [x] Private chat option
 - [x] Rework profile updating form  
