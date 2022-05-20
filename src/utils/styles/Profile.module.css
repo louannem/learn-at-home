@@ -9,3 +9,11 @@
     width: 100px;
     border-radius: 100px;
 }
+
+.presentationWrapper {
+    width: 50%;
+    background-color: #fafafa;
+    padding: 15px;
+    color: grey;
+    margin: 30px auto;
+}

@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 import dashboard from "../../utils/styles/Dashboard.module.css"
 
-export const RoomsCollection = ({user}) => {
+export const RoomsCollection = ({user, showTextLine}) => {
     const [rooms, setRooms] = useState([])
     const uid = user.uid || user.id.toString()
     
@@ -22,7 +22,12 @@ export const RoomsCollection = ({user}) => {
     return(
         <section className={dashboard.roomsWrapper}>
             <h2>Rooms</h2> 
-            {rooms.length > 0 && <span className={dashboard.newRoom}>You are part of {rooms.length} room{rooms.length > 1 ? 's' : ''}. Try and <Link to="/new-room">create a new one</Link> !</span>}
+            {showTextLine && 
+            <>
+                {rooms.length > 0 && <span className={dashboard.newRoom}>You are part of {rooms.length} room{rooms.length > 1 ? 's' : ''}. Try and <Link to="/new-room">create a new one</Link> !</span>}
+            </>
+            }
+            
             <div className={dashboard.roomCollection}>
             { rooms.length > 0 ? rooms.map(elem => (
                 <CurrentRooms group={elem}  key={`room-${elem.roomId}`} />

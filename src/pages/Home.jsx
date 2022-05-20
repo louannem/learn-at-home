@@ -22,7 +22,7 @@ export const Home = () => {
         <section className={dashboard.wrapper}>
             <Dashboard user={user} />
             <section className={dashboard.content}>
-                <RoomsCollection user={user} />
+                <RoomsCollection user={user} showTextLine={true} />
                 <InviteCard />
             </section>
             

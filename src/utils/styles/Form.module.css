@@ -8,6 +8,26 @@
     justify-content: center;
 }
 
+.formWrapper fieldset { width: 60%! important; all: unset; margin: 5px 0px;}
+.formWrapper fieldset > *, .formWrapper fieldset > h2 { width: 100%;}
+
+.formWrapper h2 {
+    margin: 0;
+    text-align: left;
+    width: 55%;
+    border-bottom: 5px solid #D7465B;
+}
+
+/*.formWrapper h2::before {
+    content: '-';
+    height: 100%;
+    width: 10px;
+    background-color: #D7465B;
+    color: #D7465B;
+    margin-right: 5px;
+    font-size: 22px;
+}*/
+
 
 .formWrapper > img, .formWrapper > svg {
     height: 100px;
@@ -18,9 +38,7 @@
 
 .formWrapper > svg { fill: #D7465B}
 
-.input {
-    width: 50%;
-    height: 20px;
+.input, .textarea {
     border: none;
     background: #EFEFEF;
 
@@ -30,11 +48,21 @@
     line-height: 29px;
     display: flex;
     align-items: center;
-    text-align: center;
 
     color: #717171;
     padding: 5px;
     margin: 5px 0px
+}
+
+.input {
+    width: 50%;
+    height: 20px;
+    text-align: center;
+}
+
+.textarea {
+    width: 70%;
+    resize: none;
 }
 
 .input:focus-visible {

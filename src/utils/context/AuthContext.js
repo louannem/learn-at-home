@@ -10,7 +10,7 @@ import {
   updateProfile
 } from "firebase/auth";
 import { auth, db } from "../firebase";
-import { doc, setDoc } from "firebase/firestore";
+import { doc, updateDoc } from "firebase/firestore";
 
 const userAuthContext = createContext();
 
@@ -49,6 +49,7 @@ export function UserAuthContextProvider({ children }) {
     })
   }
 
+
   function logOut() {
     return signOut(auth);
   }
@@ -72,7 +73,7 @@ export function UserAuthContextProvider({ children }) {
         setUser(currentuser);
 
         if(currentuser) {
-          setDoc(doc(db, 'users', currentuser.uid), {
+          updateDoc(doc(db, 'users', currentuser.uid), {
             userId: currentuser.uid,
             email: currentuser.email,
             displayName: currentuser.displayName,

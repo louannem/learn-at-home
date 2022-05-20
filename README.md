@@ -44,7 +44,8 @@ Things to improve and implement :
 - [ ] Search system for available chatrooms
 - [ ] 404 page
 - [ ] Loading page
-- [ ] User profile page
-- [ ] User bio field
+- [x] User profile page
+- [x] User bio field
 - [ ] Notifications
 - [ ] Private chat option
+- [x] Rework profile updating form  

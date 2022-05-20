@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { CurrentRooms } from "../components/Dashboard/CurrentRooms"
 import { RoomsCollection } from "../components/Dashboard/RoomsCollection"
+import { Presentation } from "../components/Profile/Presentation"
 import { ProfileHeader } from "../components/Profile/ProfileHeader"
 import { db } from "../utils/firebase"
 
@@ -52,7 +53,8 @@ export const ProfilePage = () => {
         <main className={page.defaultWrapper}>
             <section>
                 <ProfileHeader user={userData} />
-                <RoomsCollection user={param} />
+                <Presentation presentation={userData.bio} />
+                <RoomsCollection user={param} showTextLine={false} />
                 
             </section>
         </main>
