@@ -15,6 +15,7 @@ import { NewRoom } from './pages/NewRoom';
 import { Rooms } from './pages/Rooms';
 import { NotificationsPage } from './pages/Notifications';
 import { ProfilePage } from './pages/ProfilePage';
+import { NotFound } from './pages/NotFound';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -73,6 +74,8 @@ root.render(
         <Route path="/login" element={<Login />}></Route>
         <Route path="/signup" element={<SignupPage />}></Route>
         <Route path="/forgot-password" element={<ForgotPasswordPage />}></Route>
+
+        <Route path='*' element={<NotFound />}></Route>
       </Routes>
     </UserAuthContextProvider>
     </HashRouter>

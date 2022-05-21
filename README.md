@@ -42,10 +42,11 @@ Things to improve and implement :
 - [x] Hide chatroom header in mobile version
 - [x] Edit a chatroom infos functions throught a menu
 - [ ] Search system for available chatrooms
-- [ ] 404 page
+- [x] 404 page
 - [ ] Loading page
 - [x] User profile page
 - [x] User bio field
 - [ ] Notifications
 - [x] Private chat option
 - [x] Rework profile updating form  
+- [ ] Checkbox styling
