@@ -1,4 +1,4 @@
-import resetPassword from "../../utils/styles/Form.module.css"
+import resetPassword from "../../utils/styles/components/Form.module.css"
 import { useUserAuth } from "../../utils/context/AuthContext"
 import { useState } from "react"
 import { useNavigate, Link } from "react-router-dom"

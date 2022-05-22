@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
-import newRoom from "../../utils/styles/Form.module.css"
+import newRoom from "../../utils/styles/components/Form.module.css"
 import logo from "../../assets/logo.svg"
 import { doc, setDoc} from "firebase/firestore"
 import { db } from "../../utils/firebase"

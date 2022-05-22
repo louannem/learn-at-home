@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom"
 import { useUserAuth } from "../../utils/context/AuthContext"
 import { db } from "../../utils/firebase"
 
-import chat from "../../utils/styles/Chat.module.css"
+import chat from "../../utils/styles/pages/Chat.module.css"
 
 export const RoomOptions = ({room, showValue, showEditForm}) => {
     const navigate = useNavigate()

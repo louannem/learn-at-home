@@ -1,4 +1,4 @@
-import modal from "../../utils/styles/Modal.module.css"
+import modal from "../../utils/styles/components/Modal.module.css"
 
 export const Modal = ({children}) => {
     return(

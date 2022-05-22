@@ -1,7 +1,7 @@
 import { useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import { useUserAuth } from "../../utils/context/AuthContext"
-import chat from "../../utils/styles/Chat.module.css"
+import chat from "../../utils/styles/pages/Chat.module.css"
 import { deleteDoc, doc } from "firebase/firestore"
 import { db } from "../../utils/firebase"
 import { BsXLg } from "react-icons/bs"

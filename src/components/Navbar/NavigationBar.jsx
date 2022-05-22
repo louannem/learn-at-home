@@ -1,14 +1,14 @@
 import { Link } from "react-router-dom"
-import { useUserAuth } from "../utils/context/AuthContext"
+import { useUserAuth } from "../../utils/context/AuthContext"
 
-import logo from "../assets/logo.svg"
-import menu from "../assets/menu.svg"
+import logo from "../../assets/logo.svg"
+import menu from "../../assets/menu.svg"
 import { BsXLg } from 'react-icons/bs'
 import { useState } from "react"
 
-import navbar from "../utils/styles/Navbar.module.css"
-import animation from "../utils/styles/animations.module.css"
-import { UserMenu } from "./Navbar/UserMenu"
+import navbar from "../../utils/styles/components/Navbar.module.css"
+import animation from "../../utils/styles/animations.module.css"
+import { UserMenu } from "./UserMenu"
 
 export const NavigationBar = () => {
     const { user } = useUserAuth()

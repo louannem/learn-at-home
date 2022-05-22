@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom"
 import { useUserAuth } from "../../utils/context/AuthContext"
-import userMenu from "../../utils/styles/UserMenu.module.css"
+import userMenu from "../../utils/styles/components/UserMenu.module.css"
 
 export const UserMenu = () => {
     const navigate = useNavigate()

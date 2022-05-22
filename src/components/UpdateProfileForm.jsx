@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { useUserAuth } from "../utils/context/AuthContext"
-import form from "../utils/styles/Form.module.css"
+import form from "../utils/styles/components/Form.module.css"
 import { Link, useNavigate } from "react-router-dom"
 import { db } from "../utils/firebase"
 import { doc, updateDoc } from "firebase/firestore"

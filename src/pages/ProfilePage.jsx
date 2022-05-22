@@ -1,7 +1,6 @@
 import {  collection, doc, getDoc, onSnapshot, query, where } from "firebase/firestore"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import { CurrentRooms } from "../components/Dashboard/CurrentRooms"
 import { RoomsCollection } from "../components/Dashboard/RoomsCollection"
 import { Presentation } from "../components/Profile/Presentation"
 import { ProfileHeader } from "../components/Profile/ProfileHeader"

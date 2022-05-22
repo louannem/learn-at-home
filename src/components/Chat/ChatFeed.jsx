@@ -6,8 +6,8 @@ import { useNavigate } from "react-router-dom"
 
 //Components & style
 import { Message } from "./Message"
-import chat from "../../utils/styles/Chat.module.css"
-import button from "../../utils/styles/Button.module.css"
+import chat from "../../utils/styles/pages/Chat.module.css"
+import button from "../../utils/styles/components/Button.module.css"
 
 
 

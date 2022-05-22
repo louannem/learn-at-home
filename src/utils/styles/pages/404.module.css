@@ -6,7 +6,20 @@
     padding: 0;
 }
 
+.notfound section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.divider {
+    width: 30%;
+    height: 5px;
+    background-color: #D7465B;
+}
+
 .notfound h1 { font-size: 30px;}
+
 .notfound a {
     all: unset;
     color: #D7465B;

@@ -4,7 +4,7 @@ import { Dashboard } from "../components/Dashboard/Dashboard"
 import { InviteCard } from "../components/Dashboard/Invites"
 import { RoomsCollection } from "../components/Dashboard/RoomsCollection"
 import { useUserAuth } from "../utils/context/AuthContext"
-import dashboard from "../utils/styles/Dashboard.module.css"
+import dashboard from "../utils/styles/pages/Dashboard.module.css"
 
 export const Home = () => {
     let { user } = useUserAuth()

@@ -2,8 +2,8 @@ import { addDoc, collection } from "firebase/firestore"
 import { useUserAuth } from "../../utils/context/AuthContext"
 import { db } from "../../utils/firebase"
 
-import modal from "../../utils/styles/Modal.module.css"
-import button from "../../utils/styles/Button.module.css"
+import modal from "../../utils/styles/components/Modal.module.css"
+import button from "../../utils/styles/components/Button.module.css"
 import { useState } from "react"
 import { Link } from "react-router-dom"
 

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import room from "../../utils/styles/Room.module.css"
+import room from "../../utils/styles/components/Room.module.css"
 
 export const CurrentRooms = ({group}) => {
     return(

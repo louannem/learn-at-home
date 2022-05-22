@@ -1,5 +1,5 @@
-import card from "../../utils/styles/InviteCard.module.css"
-import button from "../../utils/styles/Button.module.css"
+import card from "../../utils/styles/components/InviteCard.module.css"
+import button from "../../utils/styles/components/Button.module.css"
 
 import { deleteDoc, doc } from "firebase/firestore"
 import { db } from "../../utils/firebase"

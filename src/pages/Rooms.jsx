@@ -2,7 +2,7 @@ import { collection, onSnapshot, query } from "firebase/firestore"
 import { useEffect, useState } from "react"
 import { db } from "../utils/firebase"
 import page from "../utils/styles/Wrapper.module.css"
-import roomsPage from "../utils/styles/RoomsPage.module.css"
+import roomsPage from "../utils/styles/pages/RoomsPage.module.css"
 import { Link } from "react-router-dom"
 
 export const Rooms = () => {

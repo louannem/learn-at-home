@@ -8,9 +8,9 @@ import { db } from "../utils/firebase"
 
 import { BsXLg, BsChevronCompactDown, BsChevronCompactUp, BsPencilSquare } from 'react-icons/bs'
 
-import chat from "../utils/styles/Chat.module.css"
-import modal from "../utils/styles/Modal.module.css"
-import editRoom from "../utils/styles/Form.module.css"
+import chat from "../utils/styles/pages/Chat.module.css"
+import modal from "../utils/styles/components/Modal.module.css"
+import editRoom from "../utils/styles/components/Form.module.css"
 
 import { UserCard } from "../components/Modal/UserCard"
 import { useUserAuth } from "../utils/context/AuthContext"

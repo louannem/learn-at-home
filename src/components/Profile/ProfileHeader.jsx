@@ -1,4 +1,4 @@
-import profile from "../../utils/styles/Profile.module.css"
+import profile from "../../utils/styles/pages/Profile.module.css"
 
 export const ProfileHeader = ({user}) => {
     return(

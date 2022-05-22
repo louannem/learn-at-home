@@ -7,6 +7,7 @@ export const NotFound = () => {
         <main className={`${page.defaultWrapper} ${content.notfound}`}>
             <section>
                 <h1>Oops ! Looks like this page doesn't exist.</h1>
+                 <div className={content.divider}></div>
                 <p>
                     <Link to="/">Go back</Link>
                 </p>

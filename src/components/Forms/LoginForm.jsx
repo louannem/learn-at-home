@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
-import signupstyle from "../../utils/styles/Form.module.css"
+import signupstyle from "../../utils/styles/components/Form.module.css"
 import { useUserAuth } from "../../utils/context/AuthContext"
 import logo from "../../assets/logo.svg"
 

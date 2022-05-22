@@ -1,6 +1,6 @@
 import { useEffect } from "react"
-import { Link, useNavigate } from "react-router-dom"
-import dashboard from "../../utils/styles/Dashboard.module.css"
+import { useNavigate } from "react-router-dom"
+import dashboard from "../../utils/styles/pages/Dashboard.module.css"
 
 export const Dashboard = ({user}) => {
     const navigate = useNavigate()

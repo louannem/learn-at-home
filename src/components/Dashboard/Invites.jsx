@@ -4,8 +4,8 @@ import { useNavigate } from "react-router-dom"
 import { useUserAuth } from "../../utils/context/AuthContext"
 import { db } from "../../utils/firebase"
 
-import card from "../../utils/styles/InviteCard.module.css"
-import button from "../../utils/styles/Button.module.css"
+import card from "../../utils/styles/components/InviteCard.module.css"
+import button from "../../utils/styles/components/Button.module.css"
 
 export const InviteCard = () => {
     const [invites, setInvites] = useState([])

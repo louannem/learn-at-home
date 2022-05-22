@@ -7,7 +7,7 @@ import { SignupPage } from './pages/Signup';
 import { UserAuthContextProvider } from './utils/context/AuthContext';
 import { Home } from './pages/Home';
 import { ProtectedRoute } from './components/ProtectedRoute';
-import { NavigationBar } from './components/NavigationBar';
+import { NavigationBar } from './components/Navbar/NavigationBar';
 import { UpdateProfile } from './pages/UpdateProfile';
 import { ForgotPasswordPage } from './pages/ForgetPasswordPage';
 import { ChatPage } from './pages/ChatPage';

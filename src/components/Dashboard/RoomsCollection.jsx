@@ -4,7 +4,7 @@ import { db } from "../../utils/firebase";
 import { CurrentRooms } from "./CurrentRooms";
 import { Link } from "react-router-dom";
 
-import dashboard from "../../utils/styles/Dashboard.module.css"
+import dashboard from "../../utils/styles/pages/Dashboard.module.css"
 
 export const RoomsCollection = ({user, showTextLine}) => {
     const [rooms, setRooms] = useState([])
